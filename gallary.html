@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Legends Rooftop Pub & Restaurant | Kasi Cuisine & Rooftop Photos</title>
+    <meta name="description" content="View photos of our authentic Kasi cuisine, rooftop dining area, restaurant atmosphere, and delicious food at Legends Rooftop Pub & Restaurant in Umlazi, Durban.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="restaurant photos, Kasi cuisine images, rooftop dining gallery, food photography, Umlazi restaurant photos, Durban Kasi food gallery, Legends restaurant images">
+    <meta name="author" content="Legends Rooftop Pub & Restaurant">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gallery - Legends Rooftop Pub & Restaurant | Kasi Cuisine & Rooftop Photos">
+    <meta property="og:description" content="View photos of our delicious food, vibrant atmosphere, and memorable events at Legends Rooftop in Umlazi, Durban.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://legendsrooftop.co.za/gallery.html">
+    <meta property="og:image" content="https://i.ibb.co/MxzMfsJw/IMG-20251110-WA0055.jpg">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://legendsrooftop.co.za/gallery.html">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #1A1A1A;
+            --accent: #FFD166;
+            --gold: #D4AF37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --background: #FFFFFF;
+            --background-alt: #F8F9FA;
+            --success: #28A745;
+            --warning: #FFC107;
+            --error: #DC3545;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+            --gradient-dark: linear-gradient(135deg, #1A1A1A 0%, #333333 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+            --shadow-xl: 0 12px 24px rgba(0,0,0,0.18);
+            --shadow-glow: 0 0 20px rgba(255, 107, 53, 0.4);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 50%;
+            
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-xxl: 48px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Enhanced Navigation */
+        .enhanced-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .enhanced-nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) var(--space-md);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-wrapper img {
+            height: 50px;
+            width: auto;
+            border-radius: var(--radius-md);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .logo-wrapper:hover .logo-glow {
+            opacity: 0.6;
+        }
+
+        .logo-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .nav-logo-text span {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--radius-md);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            transform: translateY(0);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .order-btn {
+            background: var(--gradient-primary);
+            color: white !important;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-btn::before {
+            display: none;
+        }
+
+        .btn-glow {
+            box-shadow: var(--shadow-glow);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+
+        .cart-btn {
+            position: relative;
+            padding: var(--space-sm);
+        }
+
+        .cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--background-alt);
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon i {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            width: 18px;
+            height: 18px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            border-radius: var(--radius-full);
+            opacity: 0;
+            animation: cartPulse 2s infinite;
+        }
+
+        @keyframes cartPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+
+        .enhanced-hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .enhanced-hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Gallery Hero Section */
+        .gallery-hero {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0.7) 100%), url('https://i.ibb.co/MxzMfsJw/IMG-20251110-WA0055.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .gallery-hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.7s;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            background: var(--background);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-container {
+            display: flex;
+            overflow-x: auto;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+        }
+
+        .category-btn {
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--background-alt);
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .category-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .category-btn:hover:not(.active) {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        /* Gallery Sections */
+        .gallery-section {
+            padding: var(--space-xxl) 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .gallery-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-header.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+
+        /* Enhanced Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .slideshow-container.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .slideshow {
+            display: flex;
+            transition: transform 0.8s ease;
+            height: 500px;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            border: 2px solid rgba(255,255,255,0.08);
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: var(--space-lg);
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+
+        .slide:hover .slide-overlay {
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+        }
+
+        .slide-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .slide-description {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Slideshow Navigation */
+        .slideshow-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 var(--space-md);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: var(--radius-full);
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .slideshow-container:hover .nav-btn {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .slideshow-dots {
+            position: absolute;
+            bottom: var(--space-lg);
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Enhanced Thumbnail Gallery */
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .thumbnail-gallery.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .thumbnail {
+            height: 150px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border-radius: var(--radius-md);
+            border: 2px solid rgba(255,255,255,0.08);
+        }
+
+        .thumbnail:hover img {
+            transform: scale(1.1);
+        }
+
+        .thumbnail.active {
+            border: 3px solid var(--primary);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .thumbnail-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail:hover .thumbnail-overlay {
+            opacity: 1;
+        }
+
+        .thumbnail-overlay i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loading-logo {
+            margin-bottom: var(--space-lg);
+        }
+
+        .logo-spinner {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: spin 2s linear infinite;
+        }
+
+        .logo-spinner img {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: white;
+        }
+
+        .loading-text p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-lg);
+        }
+
+        .loading-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            width: 0%;
+            animation: progress 2s ease-in-out infinite;
+        }
+
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+
+        /* Enhanced Footer */
+        .enhanced-footer {
+            background: var(--secondary);
+            color: white;
+            position: relative;
+            padding-top: calc(var(--space-xxl) + 100px);
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%231a1a1a"></path></svg>');
+            background-size: cover;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xxl);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: white;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-logo-text h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+        }
+
+        .footer-logo-text span {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+
+        .enhanced-social {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .social-link {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .social-link:hover .social-glow {
+            opacity: 1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon i {
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--space-xl) 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .footer-cta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .footer-cta h4 {
+            color: white;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .btn-small {
+            padding: var(--space-sm) var(--space-lg);
+            font-size: 0.9rem;
+        }
+
+        .footer-copyright {
+            text-align: right;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-copyright p {
+            margin-bottom: var(--space-xs);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: var(--space-lg);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .enhanced-hamburger {
+                display: flex;
+            }
+            
+            .gallery-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .slideshow {
+                height: 400px;
+            }
+            
+            .thumbnail-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-cta {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .slideshow {
+                height: 300px;
+            }
+            
+            .thumbnail-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-spinner">
+                    <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends Logo">
+                </div>
+            </div>
+            <div class="loading-text">
+                <h3>Legends Rooftop</h3>
+                <p>Loading Kasi flavors...</p>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav class="navbar enhanced-nav" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-wrapper">
+                    <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends Rooftop Logo" loading="lazy" decoding="async">
+                    <div class="logo-glow"></div>
+                </div>
+                <div class="nav-logo-text">
+                    <h1>LEGENDS</h1>
+                    <span>Rooftop Pub & Restaurant</span>
+                </div>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link" data-text="Home">Home</a>
+                <a href="about.html" class="nav-link" data-text="About">About</a>
+                <a href="menu.html" class="nav-link" data-text="Menu">Menu</a>
+                <a href="gallery.html" class="nav-link active" data-text="Gallery">Gallery</a>
+                <a href="booking.html" class="nav-link" data-text="Bookings">Bookings</a>
+                <a href="checkout.html" class="nav-link order-btn pulse" data-text="Order Now">
+                    <span>Order Now</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <!-- Accounts and Cart removed for marketing-only site -->
+            </div>
+            <div class="hamburger enhanced-hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero">
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="container">
+            <div class="gallery-hero-content">
+                <h1>Our Gallery</h1>
+                <p>Experience the vibrant atmosphere and delicious cuisine at Legends through our photo collection</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="category-nav">
+        <div class="container">
+            <div class="category-container" id="categoryContainer">
+                <!-- Category buttons will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Sections -->
+    <main class="gallery-container">
+        <!-- Food & Drinks Section -->
+        <section class="gallery-section active" id="food-drinks">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Food & Drinks</h2>
+                    <p>Explore our delicious Kasi cuisine and refreshing beverages</p>
+                </div>
+                <div class="slideshow-container" id="foodSlideshowContainer">
+                    <div class="slideshow" id="foodSlideshow">
+                        <!-- Slides will be populated by JavaScript -->
+                    </div>
+                    <div class="slideshow-nav">
+                        <button class="nav-btn prev-btn" data-slideshow="food">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="nav-btn next-btn" data-slideshow="food">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="slideshow-dots" id="foodDots">
+                        <!-- Dots will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="thumbnail-gallery" id="foodThumbnails">
+                    <!-- Thumbnails will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Atmosphere Section -->
+        <section class="gallery-section" id="atmosphere">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Atmosphere</h2>
+                    <p>Experience the vibrant energy and unique ambiance of Legends Rooftop</p>
+                </div>
+                <div class="slideshow-container" id="atmosphereSlideshowContainer">
+                    <div class="slideshow" id="atmosphereSlideshow">
+                        <!-- Slides will be populated by JavaScript -->
+                    </div>
+                    <div class="slideshow-nav">
+                        <button class="nav-btn prev-btn" data-slideshow="atmosphere">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="nav-btn next-btn" data-slideshow="atmosphere">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="slideshow-dots" id="atmosphereDots">
+                        <!-- Dots will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="thumbnail-gallery" id="atmosphereThumbnails">
+                    <!-- Thumbnails will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="gallery-section" id="events">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Events</h2>
+                    <p>See the memorable moments and celebrations at Legends</p>
+                </div>
+                <div class="slideshow-container" id="eventsSlideshowContainer">
+                    <div class="slideshow" id="eventsSlideshow">
+                        <!-- Slides will be populated by JavaScript -->
+                    </div>
+                    <div class="slideshow-nav">
+                        <button class="nav-btn prev-btn" data-slideshow="events">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="nav-btn next-btn" data-slideshow="events">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="slideshow-dots" id="eventsDots">
+                        <!-- Dots will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="thumbnail-gallery" id="eventsThumbnails">
+                    <!-- Thumbnails will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Braai Corner Section -->
+        <section class="gallery-section" id="braai-corner">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Braai Corner</h2>
+                    <p>Our authentic South African braai experience in action</p>
+                </div>
+                <div class="slideshow-container" id="braaiSlideshowContainer">
+                    <div class="slideshow" id="braaiSlideshow">
+                        <!-- Slides will be populated by JavaScript -->
+                    </div>
+                    <div class="slideshow-nav">
+                        <button class="nav-btn prev-btn" data-slideshow="braai">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="nav-btn next-btn" data-slideshow="braai">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="slideshow-dots" id="braaiDots">
+                        <!-- Dots will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="thumbnail-gallery" id="braaiThumbnails">
+                    <!-- Thumbnails will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Rooftop Views Section -->
+        <section class="gallery-section" id="rooftop-views">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Rooftop Views</h2>
+                    <p>Breathtaking views from our rooftop dining experience</p>
+                </div>
+                <div class="slideshow-container" id="rooftopSlideshowContainer">
+                    <div class="slideshow" id="rooftopSlideshow">
+                        <!-- Slides will be populated by JavaScript -->
+                    </div>
+                    <div class="slideshow-nav">
+                        <button class="nav-btn prev-btn" data-slideshow="rooftop">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="nav-btn next-btn" data-slideshow="rooftop">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="slideshow-dots" id="rooftopDots">
+                        <!-- Dots will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="thumbnail-gallery" id="rooftopThumbnails">
+                    <!-- Thumbnails will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer enhanced-footer">
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-wrapper">
+                            <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends Rooftop Logo" loading="lazy" decoding="async">
+                        </div>
+                        <div class="footer-logo-text">
+                            <h3>LEGENDS</h3>
+                            <span>Rooftop Pub & Restaurant</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">Bringing authentic Kasi flavors to your doorstep with modern convenience and traditional taste.</p>
+                    <div class="social-links enhanced-social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section" id="quick-links">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="booking.html">Book Table</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Gallery Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#food-drinks">Food & Drinks</a></li>
+                        <li><a href="#atmosphere">Atmosphere</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#braai-corner">Braai Corner</a></li>
+                        <li><a href="#rooftop-views">Rooftop Views</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span> 296 Dingani Rd, Umlazi J, Umlazi, 4066 </span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>078 734 8487</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+27826766105</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>mduduzi100@icloud.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <span>Monday - Sunday = 12:00pm till Late</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-cta">
+                    <h4>Ready to experience Legends?</h4>
+                    <a href="checkout.html" class="btn btn-primary btn-small">
+                        <span>Order Now</span>
+                        <i class="fas fa-bolt"></i>
+                    </a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Legends Rooftop Pub & Restaurant. All rights reserved.</p>
+                    <p>Established 2019 • Made with ❤️ for the Kasi community</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery Data - Replace with your own images
+        const galleryData = {
+            "food-drinks": {
+                title: "Food & Drinks",
+                description: "Explore our delicious Kasi cuisine and refreshing beverages",
+                images: [
+                    {
+                        src: "https://i.ibb.co/PZZSdcwx/IMG-20251110-WA0050.jpg",
+                        title: "Mixed Braai Platter",
+                        description: "Our signature braai platter with perfectly grilled meats"
+                    },
+                    {
+                        src: "https://i.ibb.co/Hfx0ndBn/IMG-20251110-WA0051.jpg",
+                        title: "Grilled Lamb Chops",
+                        description: "Tender lamb chops with our secret Kasi marinade"
+                    },
+                    {
+                        src: "https://i.ibb.co/pBjP0qhL/IMG-20251110-WA0052.jpg",
+                        title: "Peri-Peri Chicken Wings",
+                        description: "Spicy peri-peri wings with blue cheese dip"
+                    },
+                    {
+                        src: "https://i.ibb.co/S7NrggBx/IMG-20251110-WA0053.jpg",
+                        title: "Full Kota",
+                        description: "Authentic township sandwich with various fillings"
+                    },
+                    {
+                        src: "https://i.ibb.co/8nkmCwpX/IMG-20251110-WA0054.jpg",
+                        title: "Chicken Kota",
+                        description: "Crispy chicken strips in a quarter loaf"
+                    }
+                ]
+            },
+            "atmosphere": {
+                title: "Atmosphere",
+                description: "Experience the vibrant energy and unique ambiance of Legends Rooftop",
+                images: [
+                    {
+                        src: "https://i.ibb.co/Fkznc4g9/IMG-20251110-WA0092.jpg",
+                        title: "Legends Ambiance",
+                        description: "Warm, welcoming vibe with authentic Kasi character"
+                    },
+                    {
+                        src: "https://i.ibb.co/YB2zp6Mf/IMG-20251110-WA0077.jpg",
+                        title: "Bar & Lounge",
+                        description: "Relaxed lounge seating near the bar area"
+                    },
+                    {
+                        src: "https://i.ibb.co/qL171Kzr/IMG-20251110-WA0074.jpg",
+                        title: "Dining Space",
+                        description: "Comfortable tables for groups and couples"
+                    }
+                ]
+            },
+            "events": {
+                title: "Events",
+                description: "See the memorable moments and celebrations at Legends",
+                images: [
+                    {
+                        src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        title: "Live Music Nights",
+                        description: "Local talent performing every weekend"
+                    },
+                    {
+                        src: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        title: "Sports Viewing",
+                        description: "Watch the game with friends and fellow fans"
+                    },
+                    {
+                        src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        title: "Private Parties",
+                        description: "Perfect venue for celebrations and gatherings"
+                    }
+                ]
+            },
+            "braai-corner": {
+                title: "Braai Corner",
+                description: "Our authentic South African braai experience in action",
+                images: [
+                    {
+                        src: "https://i.ibb.co/MxzMfsJw/IMG-20251110-WA0055.jpg",
+                        title: "Grilled Meat Platter",
+                        description: "Premium selection of perfectly grilled meats"
+                    },
+                    {
+                        src: "https://i.ibb.co/bgn9vMj5/IMG-20251110-WA0056.jpg",
+                        title: "Traditional Braai",
+                        description: "Authentic South African barbecue experience"
+                    },
+                    {
+                        src: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        title: "Braai Master",
+                        description: "Expertly grilled meats by our master braaier"
+                    }
+                ]
+            },
+            "rooftop-views": {
+                title: "Rooftop Views",
+                description: "Breathtaking views from our rooftop dining experience",
+                images: [
+                    {
+                        src: "https://i.ibb.co/Fkznc4g9/IMG-20251110-WA0092.jpg",
+                        title: "Rooftop Ambiance",
+                        description: "Expansive rooftop space with skyline views"
+                    },
+                    {
+                        src: "https://i.ibb.co/qL171Kzr/IMG-20251110-WA0074.jpg",
+                        title: "Sunset Over Umlazi",
+                        description: "Golden-hour glow across our rooftop"
+                    }
+                ]
+            }
+        };
+
+        // Slideshow state
+        const slideshowState = {};
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            const cartBtn = document.getElementById('cart-button');
+            if (cartBtn) {
+                cartBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'checkout.html';
+                });
+            }
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'legendsCart') {
+                    updateCartCount();
+                }
+            });
+            // Loader handled by js/site.js
+
+            // Populate category navigation
+            populateCategoryNav();
+            
+            // Populate gallery sections
+            populateGallerySections();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Initialize slideshows
+            initializeSlideshows();
+            
+            // Setup intersection observer for animations
+            setupIntersectionObserver();
+            
+            // Create particles for hero section
+            createParticles();
+        });
+
+        function updateCartCount() {
+            const cartCountEl = document.getElementById('cart-count');
+            if (!cartCountEl) return;
+            const cart = JSON.parse(localStorage.getItem('legendsCart')) || [];
+            let total = 0;
+            for (let i = 0; i < cart.length; i++) {
+                total += cart[i].quantity || 0;
+            }
+            cartCountEl.textContent = total;
+        }
+
+        function populateCategoryNav() {
+            const categoryContainer = document.getElementById('categoryContainer');
+            
+            for (const categoryId in galleryData) {
+                const category = galleryData[categoryId];
+                const button = document.createElement('button');
+                button.className = 'category-btn';
+                button.textContent = category.title;
+                button.dataset.category = categoryId;
+                
+                if (categoryId === 'food-drinks') {
+                    button.classList.add('active');
+                }
+                
+                categoryContainer.appendChild(button);
+                
+                // Animate buttons with staggered delay
+                setTimeout(() => {
+                    button.style.opacity = '1';
+                    button.style.transform = 'translateY(0)';
+                    button.style.transition = 'all 0.5s ease';
+                }, 100 * Object.keys(galleryData).indexOf(categoryId));
+            }
+        }
+
+        function populateGallerySections() {
+            for (const categoryId in galleryData) {
+                const category = galleryData[categoryId];
+                const section = document.getElementById(categoryId);
+                
+                if (section) {
+                    // Update section header
+                    const header = section.querySelector('.section-header');
+                    header.querySelector('h2').textContent = category.title;
+                    header.querySelector('p').textContent = category.description;
+                    
+                    // Populate slideshow
+                    const slideshow = section.querySelector('.slideshow');
+                    const dotsContainer = section.querySelector('.slideshow-dots');
+                    const thumbnailsContainer = section.querySelector('.thumbnail-gallery');
+                    
+                    slideshow.innerHTML = '';
+                    dotsContainer.innerHTML = '';
+                    thumbnailsContainer.innerHTML = '';
+                    
+                    category.images.forEach((image, index) => {
+                        // Create slide
+                        const slide = document.createElement('div');
+                        slide.className = 'slide';
+                        slide.innerHTML = `
+                            <img src="${image.src}" alt="${image.title}" loading="lazy" decoding="async" srcset="${image.src} 1x, ${image.src} 2x" sizes="(max-width: 1000px) 100vw, 1000px">
+                            <div class="slide-overlay">
+                                <h3 class="slide-title">${image.title}</h3>
+                                <p class="slide-description">${image.description}</p>
+                            </div>
+                        `;
+                        slideshow.appendChild(slide);
+                        
+                        // Create dot
+                        const dot = document.createElement('div');
+                        dot.className = `dot ${index === 0 ? 'active' : ''}`;
+                        dot.dataset.index = index;
+                        dotsContainer.appendChild(dot);
+                        
+                        // Create thumbnail
+                        const thumbnail = document.createElement('div');
+                        thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                        thumbnail.dataset.index = index;
+                        thumbnail.innerHTML = `
+                            <img src="${image.src}" alt="${image.title}" loading="lazy" decoding="async" srcset="${image.src} 1x, ${image.src} 2x" sizes="(max-width: 200px) 200px, 25vw">
+                            <div class="thumbnail-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        `;
+                        thumbnailsContainer.appendChild(thumbnail);
+                    });
+                    
+                    // Initialize slideshow state
+                    slideshowState[categoryId] = {
+                        currentIndex: 0,
+                        totalSlides: category.images.length
+                    };
+                }
+            }
+        }
+
+        function initializeSlideshows() {
+            for (const categoryId in galleryData) {
+                const slideshow = document.getElementById(`${categoryId}Slideshow`);
+                if (slideshow) {
+                    // Set initial position
+                    slideshow.style.transform = `translateX(0)`;
+                }
+            }
+        }
+
+        function setupEventListeners() {
+            // Navigation hamburger
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Nav scroll effect
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Category navigation
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const gallerySections = document.querySelectorAll('.gallery-section');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const categoryId = this.dataset.category;
+                    gallerySections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === categoryId) {
+                            section.classList.add('active');
+                            
+                            // Scroll to section
+                            window.scrollTo({
+                                top: section.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            });
+            
+            // Slideshow navigation
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const slideshowId = this.dataset.slideshow;
+                    const isNext = this.classList.contains('next-btn');
+                    
+                    navigateSlideshow(slideshowId, isNext);
+                });
+            });
+            
+            // Slideshow dots
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('dot')) {
+                    const dotsContainer = e.target.parentElement;
+                    const slideshowId = dotsContainer.id.replace('Dots', '');
+                    const index = parseInt(e.target.dataset.index);
+                    
+                    goToSlide(slideshowId, index);
+                }
+            });
+            
+            // Thumbnail clicks
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.thumbnail')) {
+                    const thumbnail = e.target.closest('.thumbnail');
+                    const thumbnailsContainer = thumbnail.parentElement;
+                    const slideshowId = thumbnailsContainer.id.replace('Thumbnails', '');
+                    const index = parseInt(thumbnail.dataset.index);
+                    
+                    goToSlide(slideshowId, index);
+                }
+            });
+            
+            // Close mobile menu on link click
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (hamburger && navMenu) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Auto-advance slideshows
+            setInterval(() => {
+                for (const categoryId in slideshowState) {
+                    if (document.getElementById(categoryId).classList.contains('active')) {
+                        navigateSlideshow(categoryId, true);
+                    }
+                }
+            }, 5000);
+        }
+
+        function navigateSlideshow(slideshowId, isNext) {
+            const state = slideshowState[slideshowId];
+            const slideshow = document.getElementById(`${slideshowId}Slideshow`);
+            const dots = document.querySelectorAll(`#${slideshowId}Dots .dot`);
+            const thumbnails = document.querySelectorAll(`#${slideshowId}Thumbnails .thumbnail`);
+            
+            if (isNext) {
+                state.currentIndex = (state.currentIndex + 1) % state.totalSlides;
+            } else {
+                state.currentIndex = (state.currentIndex - 1 + state.totalSlides) % state.totalSlides;
+            }
+            
+            updateSlideshowPosition(slideshowId, state.currentIndex, dots, thumbnails);
+        }
+
+        function goToSlide(slideshowId, index) {
+            const state = slideshowState[slideshowId];
+            const slideshow = document.getElementById(`${slideshowId}Slideshow`);
+            const dots = document.querySelectorAll(`#${slideshowId}Dots .dot`);
+            const thumbnails = document.querySelectorAll(`#${slideshowId}Thumbnails .thumbnail`);
+            
+            state.currentIndex = index;
+            updateSlideshowPosition(slideshowId, index, dots, thumbnails);
+        }
+
+        function updateSlideshowPosition(slideshowId, index, dots, thumbnails) {
+            const slideshow = document.getElementById(`${slideshowId}Slideshow`);
+            
+            // Update slideshow position
+            slideshow.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            
+            // Update active thumbnail
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnails[index].classList.add('active');
+        }
+
+        function setupIntersectionObserver() {
+            const sectionHeaders = document.querySelectorAll('.section-header');
+            const slideshowContainers = document.querySelectorAll('.slideshow-container');
+            const thumbnailGalleries = document.querySelectorAll('.thumbnail-gallery');
+            const sections = document.querySelectorAll('.gallery-section');
+            
+            const headerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            sectionHeaders.forEach(header => {
+                headerObserver.observe(header);
+            });
+            
+            const slideshowObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            slideshowContainers.forEach(container => {
+                slideshowObserver.observe(container);
+            });
+            
+            const thumbnailObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            thumbnailGalleries.forEach(gallery => {
+                thumbnailObserver.observe(gallery);
+            });
+            
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Update category navigation
+                        const categoryBtns = document.querySelectorAll('.category-btn');
+                        categoryBtns.forEach(btn => {
+                            btn.classList.remove('active');
+                            if (btn.dataset.category === entry.target.id) {
+                                btn.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        }
+
+        function createParticles() {
+            const particlesContainer = document.getElementById('heroParticles');
+            if (!particlesContainer) return;
+
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                createParticle(particlesContainer);
+            }
+        }
+
+        function createParticle(container) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random properties
+            const size = Math.random() * 4 + 1;
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            const duration = Math.random() * 10 + 10;
+            const delay = Math.random() * 5;
+            
+            particle.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background: rgba(255, 255, 255, ${Math.random() * 0.3});
+                border-radius: 50%;
+                left: ${posX}%;
+                top: ${posY}%;
+                animation: float ${duration}s ease-in-out ${delay}s infinite;
+            `;
+            
+            container.appendChild(particle);
+            
+            // Add CSS for float animation
+            if (!document.querySelector('#particle-animations')) {
+                const style = document.createElement('style');
+                style.id = 'particle-animations';
+                style.textContent = `
+                    @keyframes float {
+                        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                        25% { transform: translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(90deg); }
+                        50% { transform: translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(180deg); }
+                        75% { transform: translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(270deg); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+    </script>
+    <script src="js/site.js" defer></script>
+</body>
+</html>

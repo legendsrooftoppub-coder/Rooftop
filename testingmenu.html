@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Legends Rooftop Pub & Restaurant | Authentic Kasi Cuisine</title>
+    <meta name="description" content="Explore our authentic Kasi menu featuring braai specials, kota sandwiches, traditional dishes, and premium drinks at Legends Rooftop in Umlazi, Durban.">
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="Legends Rooftop menu, Kasi food Durban, Umlazi restaurant menu, braai specials, kota sandwiches, traditional South African food">
+    <meta name="author" content="Legends Rooftop Pub & Restaurant">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Menu - Legends Rooftop Pub & Restaurant | Authentic Kasi Cuisine">
+    <meta property="og:description" content="Explore our authentic Kasi menu featuring braai specials, kota sandwiches, traditional dishes, and premium drinks.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://legendsrooftop.co.za/Menuu.html">
+    <meta property="og:image" content="https://i.ibb.co/MxzMfsJw/IMG-20251110-WA0055.jpg">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://legendsrooftop.co.za/Menuu.html">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #1A1A1A;
+            --accent: #FFD166;
+            --gold: #D4AF37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --background: #FFFFFF;
+            --background-alt: #F8F9FA;
+            --success: #28A745;
+            --warning: #FFC107;
+            --error: #DC3545;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+            --gradient-dark: linear-gradient(135deg, #1A1A1A 0%, #333333 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+            --shadow-xl: 0 12px 24px rgba(0,0,0,0.18);
+            --shadow-glow: 0 0 20px rgba(255, 107, 53, 0.4);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 50%;
+            
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-xxl: 48px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        /* Enhanced Navigation */
+        .enhanced-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .enhanced-nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) var(--space-md);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        .logo-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .logo-wrapper img {
+            height: 50px;
+            width: auto;
+            border-radius: var(--radius-md);
+            transition: transform 0.3s ease;
+        }
+        .logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        .logo-wrapper:hover .logo-glow {
+            opacity: 0.6;
+        }
+        .logo-wrapper:hover img {
+            transform: scale(1.05);
+        }
+        .nav-logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin: 0;
+        }
+        .nav-logo-text span {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .nav-link::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--radius-md);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        .nav-link:hover::before {
+            transform: translateY(0);
+        }
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .order-btn {
+            background: var(--gradient-primary);
+            color: white !important;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        .order-btn::before {
+            display: none;
+        }
+        .btn-glow {
+            box-shadow: var(--shadow-glow);
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+        .cart-btn {
+            position: relative;
+            padding: var(--space-sm);
+        }
+        .cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--background-alt);
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+        .cart-icon i {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            width: 18px;
+            height: 18px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            border-radius: var(--radius-full);
+            opacity: 0;
+            animation: cartPulse 2s infinite;
+        }
+        @keyframes cartPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+        .enhanced-hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+        .enhanced-hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        /* Menu Hero Section */
+        .menu-hero {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0.7) 100%),
+            url('https://i.ibb.co/MxzMfsJw/IMG-20251110-WA0055.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        .menu-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+        }
+        .menu-hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+        }
+        .menu-search {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .menu-search input {
+            width: 100%;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-full);
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1rem;
+        }
+        .menu-search input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .menu-search i {
+            position: absolute;
+            right: var(--space-lg);
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        /* Category Navigation */
+        .category-nav {
+            background: var(--background);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+        .category-container {
+            display: flex;
+            overflow-x: auto;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+        }
+        .category-btn {
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--background-alt);
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .category-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        .category-btn:hover:not(.active) {
+            background: rgba(255, 107, 53, 0.1);
+        }
+        /* Menu Sections */
+        .menu-section {
+            padding: var(--space-xxl) 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: var(--space-md);
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+        }
+        .menu-item {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        .menu-item-image {
+            aspect-ratio: 4 / 3;
+            height: auto;
+            min-height: 180px;
+            background: var(--background-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            overflow: hidden;
+        }
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .menu-item:hover .menu-item-image img {
+            transform: scale(1.05);
+        }
+        .menu-item-image i {
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+        .menu-item-content {
+            padding: var(--space-lg);
+        }
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+        .menu-item-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        .menu-item-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .menu-item-description {
+            color: var(--text-light);
+            margin-bottom: var(--space-md);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .menu-item-tags {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+            flex-wrap: wrap;
+        }
+        .tag {
+            padding: 4px 8px;
+            background: var(--background-alt);
+            border-radius: var(--radius-sm);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .tag.spicy {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--primary);
+        }
+        .tag.popular {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+        }
+        .tag.vegetarian {
+            background: rgba(40, 167, 69, 0.1);
+            color: var(--success);
+        }
+        .add-to-cart-btn {
+            width: 100%;
+            padding: var(--space-md);
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+        .add-to-cart-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        .add-to-cart-btn.added {
+            background: var(--success);
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-sm);
+        }
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            background: var(--background-alt);
+            border: none;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .quantity-display {
+            font-weight: 700;
+            min-width: 30px;
+            text-align: center;
+        }
+        /* Sticky Cart Bar */
+        .sticky-cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+            padding: var(--space-md);
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .sticky-cart-bar.visible {
+            transform: translateY(0);
+        }
+        .cart-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cart-summary {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+        .cart-items-count {
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        .cart-total {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        .cart-actions {
+            display: flex;
+            gap: var(--space-md);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        /* Enhanced Footer */
+.enhanced-footer {
+    background: var(--secondary);
+    color: white;
+    position: relative;
+    padding-top: calc(var(--space-xxl) + 100px);
+}
+.footer-wave {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%231a1a1a"></path></svg>');
+    background-size: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xxl);
+    position: relative;
+    z-index: 1;
+}
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: white;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        .footer-logo-text h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+        }
+        .footer-logo-text span {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        .footer-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+        .enhanced-social {
+            display: flex;
+            gap: var(--space-md);
+        }
+        .social-link {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        .social-link:hover .social-glow {
+            opacity: 1;
+        }
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-icon i {
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--space-xl) 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+        .footer-cta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+        .footer-cta h4 {
+            color: white;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        .btn-small {
+            padding: var(--space-sm) var(--space-lg);
+            font-size: 0.9rem;
+        }
+        .footer-copyright {
+            text-align: right;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .footer-copyright p {
+            margin-bottom: var(--space-xs);
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: var(--space-lg);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .enhanced-hamburger {
+                display: flex;
+            }
+            
+            .menu-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-bar-content {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+            
+            .cart-summary {
+                flex-direction: column;
+                gap: var(--space-sm);
+                text-align: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-cta {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+        }
+        @media (max-width: 480px) {
+            .menu-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Navigation -->
+    <nav class="navbar enhanced-nav" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-wrapper">
+                    <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends Rooftop Logo">
+                    <div class="logo-glow"></div>
+                </div>
+                <div class="nav-logo-text">
+                    <h1>LEGENDS</h1>
+                    <span>Rooftop Pub & Restaurant</span>
+                </div>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link" data-text="Home">Home</a>
+                <a href="about.html" class="nav-link" data-text="About">About</a>
+<a href="Menuu.html" class="nav-link" data-text="Menu">Menu</a>
+                <a href="gallery.html" class="nav-link" data-text="Gallery">Gallery</a>
+                <a href="booking.html" class="nav-link" data-text="Bookings">Bookings</a>
+                <a href="checkout.html" class="nav-link order-btn pulse" data-text="Order Now">
+                    <span>Order Now</span>
+                    <div class="btn-glow"></div>
+                </a>
+            </div>
+            <div class="hamburger enhanced-hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Hero Section -->
+    <section class="menu-hero">
+        <div class="container">
+            <div class="menu-hero-content">
+                <h1>Our Menu</h1>
+                <p>Experience authentic Kasi flavors with a modern twist. From traditional braai to creative kota sandwiches.</p>
+                <div class="menu-search">
+                    <input type="text" placeholder="Search for your favorite dish...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="category-nav">
+        <div class="container">
+            <div class="category-container">
+                <button class="category-btn active" data-category="braai">Braai Specials</button>
+                <button class="category-btn" data-category="kota">Bunny Chow Corner</button>
+                <button class="category-btn" data-category="burgers">Burgers</button>
+                <button class="category-btn" data-category="combos">Combos</button>
+                <button class="category-btn" data-category="grilled-meals">Grilled Meals</button>
+                <button class="category-btn" data-category="snacks">Snacks</button>
+                <button class="category-btn" data-category="breakfast">Breakfast</button>
+                <button class="category-btn" data-category="lunch">Lunch</button>
+                <button class="category-btn" data-category="dinner">Dinner</button>
+                <button class="category-btn" data-category="platters">Platters</button>
+                <button class="category-btn" data-category="starters">Starters</button>
+                <button class="category-btn" data-category="drinks">Drinks</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Sections -->
+    <main class="menu-container">
+        <!-- Braai Specials -->
+        <section class="menu-section" id="braai">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Braai Specials</h2>
+                    <p>Perfectly grilled meats with traditional Kasi marinades and spices</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Braai items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Bunny Chow Corner -->
+        <section class="menu-section" id="kota">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Bunny Chow Corner</h2>
+                    <p>Authentic township-style sandwiches with generous, hearty fillings</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Kota items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Burgers -->
+        <section class="menu-section" id="burgers">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Burgers</h2>
+                    <p>Juicy burgers with fresh ingredients and legendary sauces</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Burger items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Breakfast -->
+        <section class="menu-section" id="breakfast">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Breakfast</h2>
+                    <p>Start your day with traditional South African breakfast favorites</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Breakfast items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Lunch -->
+        <section class="menu-section" id="lunch">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Lunch</h2>
+                    <p>Hearty midday meals to power you through the day</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Lunch items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Dinner -->
+        <section class="menu-section" id="dinner">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Dinner</h2>
+                    <p>Evening delights to end your day on a delicious note</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Dinner items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Platters -->
+        <section class="menu-section" id="platters">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Platters</h2>
+                    <p>Perfect for sharing with friends and family</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Platter items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Starters -->
+        <section class="menu-section" id="starters">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Starters</h2>
+                    <p>Small bites to kick off your meal</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Starter items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Drinks -->
+        <section class="menu-section" id="drinks">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Drinks</h2>
+                    <p>Refreshments to complement your meal</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Drink items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Combos -->
+        <section class="menu-section" id="combos">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Combos</h2>
+                    <p>Popular combinations with chips and sauces</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Combo items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Grilled Meals -->
+        <section class="menu-section" id="grilled-meals">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Grilled Meals</h2>
+                    <p>Flame-grilled chicken and meats, cooked to perfection</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Grilled meal items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Snacks -->
+        <section class="menu-section" id="snacks">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Snacks</h2>
+                    <p>Quick bites and sides to satisfy your cravings</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Snack items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Specials -->
+        <section class="menu-section" id="specials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Specials</h2>
+                    <p>Signature platters and family meals</p>
+                </div>
+                <div class="menu-grid">
+                    <!-- Specials items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer enhanced-footer">
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-wrapper">
+                            <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends Rooftop Logo">
+                        </div>
+                        <div class="footer-logo-text">
+                            <h3>LEGENDS</h3>
+                            <span>Rooftop Pub & Restaurant</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">Bringing authentic Kasi flavors to your doorstep with modern convenience and traditional taste.</p>
+                    <div class="social-links enhanced-social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                    </div>
+                </div>
+               
+                <div class="footer-section" id="quick-links">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+<li><a href="Menuu.html">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="booking.html">Book Table</a></li>
+                    </ul>
+                </div>
+               
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#braai">Braai Specials</a></li>
+                        <li><a href="#kota">Bunny Chow Corner</a></li>
+                        <li><a href="#burgers">Burgers</a></li>
+                        <li><a href="#drinks">Drinks & Beverages</a></li>
+                        <li><a href="#platters">Platters</a></li>
+                    </ul>
+                </div>
+               
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span> 296 Dingani Rd, Umlazi J, Umlazi, 4066 </span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>078 734 8487</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+27826766105</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>mduduzi100@icloud.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <span>Monday - Sunday = 12:00pm till Late</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="footer-bottom">
+                <div class="footer-cta">
+                    <h4>Ready to experience Legends?</h4>
+        <a href="checkout.html" class="btn btn-primary btn-small">
+                        <span>Order Now</span>
+                        <i class="fas fa-bolt"></i>
+                    </a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Legends Rooftop Pub & Restaurant. All rights reserved.</p>
+                    <p>Established 2018 • Made with ❤️ for the Kasi community</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Updated Menu Data with all new image links
+        const menuData = {
+            braai: [
+                { id: 1, name: "Lamb Chops Meal", description: "2X Flamed Grilled Lamb Chops served with Roll/Jege, Chips and Salad", price: 80, tags: ["Grilled", "Popular"], image: "" },
+                { id: 2, name: "Chops and Sausage", description: "Flamed Grilled basted sausage and 2 chops served with spinach or salad and pap or jege", price: 90, tags: ["Combo", "Grilled"], image: "https://i.ibb.co/HZ68RGr/IMG-20251112-WA0068.jpg" },
+                { id: 3, name: "Meat and Sausage", description: "Flamed Grilled basted brisket or short rib and sausage served with chakalaka, or salad and pap or jege", price: 80, tags: ["Combo", "Grilled"], image: "https://i.ibb.co/Q3MXT3s5/IMG-20251112-WA0067.jpg" },
+                { id: 4, name: "Steak and Chops", description: "1X Flamed Grilled basted Steak and 2 lamb chops served with chakalaka or salad and pap or jege", price: 95, tags: ["Combo", "Premium"], image: "https://i.ibb.co/hFjns2hM/IMG-20251112-WA0066.jpg" },
+                { id: 5, name: "Steak and Ribs", description: "Flamed Grilled basted steak and ribs served with spinach or salad and pap or jege", price: 100, tags: ["Combo", "Premium"], image: "https://i.ibb.co/n8LJMBTT/IMG-20251112-WA0065.jpg" },
+                { id: 6, name: "Chicken and Steak", description: "Flamed Grilled basted steak and quarter chicken served with spinach or salad and pap or jege", price: 100, tags: ["Combo", "Premium"], image: "" },
+                { id: 7, name: "Ribs and Chicken", description: "Flamed Grilled basted ribs and quarter chicken served with spinach or salad and pap or jege", price: 100, tags: ["Combo", "Premium"], image: "https://i.ibb.co/Wv66wZG0/IMG-20251112-WA0063.jpg" }
+            ],
+
+            platters: [
+                { id: 8, name: "The Legendary Platter", description: "2X Flamed Grilled basted steak, 3X wracks of ribs and 8 chicken wings wors, 3x lamb chops served with salsa & chakalaka and pap or jege", price: 350, tags: ["Serves 4-6", "Share"], popular: true, image: "https://i.ibb.co/wFTK9pds/IMG-20251112-WA0062.jpg" },
+                { id: 9, name: "The Don Platter", description: "3X Flamed Grilled Brisket, 2X wracks of ribs, 3X Lamb Chops, 5X wings and 3X Mutton sausages served with salsa and chakalaka and pap or jege", price: 280, tags: ["Serves 3-4", "Share"], image: "https://i.ibb.co/wFTK9pds/IMG-20251112-WA0061.jpg" },
+                { id: 10, name: "The Goddess Platter", description: "2X Flamed Grilled Brisket, 3X ribs, 4X Wings, 3 Mutton Sausages served with salsa and chakalaka and pap or jeqe", price: 245, tags: ["Serves 2-3", "Share"], image: "https://i.ibb.co/v6RyKJSx/IMG-20251112-WA0060.jpg" }
+            ],
+
+            breakfast: [
+                { id: 11, name: "Full Steak Breakfast", description: "1 Steak, 2 Eggs, 2 rashers of bacon, 2 sausages, baked beans, with 2 slices of toast", price: 100, tags: ["Hearty", "Classic"], image: "https://i.ibb.co/LzfLj8S1/IMG-20251112-WA0059.jpg" },
+                { id: 12, name: "Full Lamb Breakfast", description: "2 Lamb, 2 Eggs, 2 rashers of bacon, 2 sausages baked beans with 2 slices of toast", price: 100, tags: ["Hearty", "Classic"], image: "https://i.ibb.co/vvwK64Fw/IMG-20251112-WA0058.jpg" },
+                { id: 13, name: "Standard Steak Breakfast", description: "1 Steak, 2 Eggs, 2 rashers of bacon, 1 sausage, baked beans, with 2 slices of brown or white toast", price: 85, tags: ["Standard", "Classic"], image: "https://i.ibb.co/2TgbWBs/IMG-20251112-WA0057.jpg" },
+                { id: 14, name: "Standard Lamb Breakfast", description: "1 Lamb, 2 Eggs, 2 rashers of bacon, 1 sausage, baked beans, with 2 slices of brown or white toast", price: 85, tags: ["Standard", "Classic"], image: "https://i.ibb.co/KxQSZR6m/IMG-20251112-WA0056.jpg" },
+                { id: 15, name: "Sunrise Breakfast", description: "2 Eggs, 2 rashers of bacon, 1 sausage, baked beans, with 2 slices of brown or white toast", price: 65, tags: ["Light", "Classic"], image: "" }
+            ],
+
+            lunch: [
+                { id: 16, name: "Beef Stew", description: "Delicious slow cooked beef stew served with rice or phuthu or ujege and salad", price: 80, tags: ["Slow-cooked", "Traditional"], image: "https://i.ibb.co/gb5XSTD5/IMG-20251112-WA0054.jpg" },
+                { id: 17, name: "Culled Chicken (Umleqo)", description: "Delicious slow cooked culled chicken served with dumplings, phuthu, pap or ujege and salads", price: 70, tags: ["Slow-cooked", "Traditional"], image: "https://i.ibb.co/qF2YNVW0/IMG-20251112-WA0053.jpg" },
+                { id: 18, name: "Beef Curry", description: "Delicious spicy beef curry served with rice/phuthu and salad", price: 70, tags: ["Spicy", "Traditional"], image: "https://i.ibb.co/jk9Zz0ZN/IMG-20251112-WA0052.jpg" },
+                { id: 19, name: "Chicken Curry", description: "Delicious spicy chicken curry served with rice/phuthu and salad", price: 70, tags: ["Spicy", "Traditional"], image: "https://i.ibb.co/qF2YNVW0/IMG-20251112-WA0051.jpg" },
+                { id: 20, name: "Fresh Fish Curry", description: "Delicious spicy fresh fish curry served with rice and salsa", price: 85, tags: ["Seafood", "Spicy"], image: "https://i.ibb.co/7Tt62sf/IMG-20251112-WA0050.jpg" }
+            ],
+
+            dinner: [
+                { id: 21, name: "Lamb Shank", description: "Delicious Lamb shank slow cooked in rosemary infused red wine and chunky veggies served with mash or savoury rice", price: 120, tags: ["Slow-cooked", "Premium"], image: "https://i.ibb.co/gb5XSTD5/IMG-20251112-WA0049.jpg" },
+                { id: 22, name: "Oxtail", description: "Delicious oxtail slow cooked until succulently tender served with savoury rice or ujege or mash and salad", price: 120, tags: ["Slow-cooked", "Premium"], image: "" },
+                { id: 23, name: "Mutton Biriyani", description: "Delicious mutton biriyani served with salad", price: 90, tags: ["Traditional", "Spicy"], image: "https://i.ibb.co/JWcfvnPW/IMG-20251112-WA0047.jpg" },
+                { id: 24, name: "Beef Biriyani", description: "Delicious beef biriyani served with salad", price: 90, tags: ["Traditional", "Spicy"], image: "" },
+                { id: 25, name: "Chicken Biriyani", description: "Delicious chicken biriyani served with salad", price: 80, tags: ["Traditional", "Spicy"], image: "https://i.ibb.co/HTnsp9TK/IMG-20251112-WA0045.jpg" }
+            ],
+
+            kota: [
+                { id: 26, name: "Chicken Bunny", description: "Delicious spicy chicken curry bunny served with Salad", price: 70, tags: ["Spicy", "Traditional"], image: "https://i.ibb.co/1YQKW532/IMG-20251112-WA0044.jpg" },
+                { id: 27, name: "Mutton Bunny", description: "Delicious spicy mutton curry bunny served with Salad", price: 80, tags: ["Spicy", "Traditional"], image: "https://i.ibb.co/1YQKW532/IMG-20251112-WA0043.jpg" },
+                { id: 28, name: "Beans Bunny", description: "Delicious spicy beans curry bunny served with Salad", price: 65, tags: ["Vegetarian", "Spicy"], image: "https://i.ibb.co/K8kcfhF/IMG-20251112-WA0042.jpg" }
+            ],
+
+            starters: [
+                { id: 29, name: "Steak Wrap", description: "Delicious steak wrap with fresh ingredients", price: 45, tags: ["Quick", "Light"], image: "https://i.ibb.co/6JmYrvL4/IMG-20251112-WA0041.jpg" },
+                { id: 30, name: "Chicken Wrap", description: "Delicious chicken wrap with fresh ingredients", price: 40, tags: ["Quick", "Light"], image: "https://i.ibb.co/hJq8F0vJ/IMG-20251112-WA0040.jpg" },
+                { id: 31, name: "Pork Wrap", description: "Delicious pork wrap with fresh ingredients", price: 40, tags: ["Quick", "Light"], image: "https://i.ibb.co/5x6w66nz/IMG-20251112-WA0039.jpg" },
+                { id: 32, name: "Assorted Sandwiches", description: "Fresh sandwiches with various fillings", price: 25, tags: ["Quick", "Light"], image: "https://i.ibb.co/hFrfcHSW/IMG-20251112-WA0038.jpg" },
+                { id: 33, name: "Chicken Wings Meal", description: "2X Flamed Grilled chicken wings served with Roll/Jege and Salad", price: 55, tags: ["Grilled", "Light"], image: "https://i.ibb.co/vCJXh0zG/IMG-20251112-WA0037.jpg" },
+                { id: 34, name: "Quarter Chicken Meal", description: "Flamed Grilled quarter chicken served with Roll/Jege and Salad", price: 65, tags: ["Grilled", "Light"], image: "" },
+                { id: 35, name: "Steak Meal", description: "Flamed Grilled steak served with Roll/ Jege and Salad", price: 80, tags: ["Grilled", "Light"], image: "https://i.ibb.co/Q3KDfxFY/IMG-20251112-WA0035.jpg" },
+                { id: 36, name: "Ribs Meal", description: "Flamed Grilled Ribs served with Roll/ Jege, and Salad", price: 80, tags: ["Grilled", "Light"], image: "https://i.ibb.co/PzhhcM2n/IMG-20251112-WA0034.jpg" }
+            ],
+
+            burgers: [
+                { id: 37, name: "Single Beef Burger and Chips", description: "1 Beef pattie, lettuce, tomato and Legends sauce served with Chips", price: 65, tags: ["Classic", "Beef"], image: "https://i.ibb.co/VWQWQ9CN/IMG-20251112-WA0033.jpg" },
+                { id: 38, name: "Single Chicken Burger and Chips", description: "1 Chicken pattie, lettuce, tomato and Legends sauce served with Chips", price: 65, tags: ["Classic", "Chicken"], image: "https://i.ibb.co/r26s1MbB/IMG-20251112-WA0032.jpg" },
+                { id: 39, name: "Single Mutton Burger and Chips", description: "1 Mutton pattie, lettuce, tomato and Legends sauce served with Chips", price: 65, tags: ["Classic", "Mutton"], image: "https://i.ibb.co/r26s1MbB/IMG-20251112-WA0031.jpg" },
+                { id: 40, name: "Double Beef Burger and Chips", description: "2 Beef patties, lettuce, tomato and Legends sauce served with Chips", price: 80, tags: ["Double", "Beef"], image: "https://i.ibb.co/Gvnfk1pc/IMG-20251112-WA0030.jpg" },
+                { id: 41, name: "Double Chicken Burger and Chips", description: "2 Chicken patties, lettuce, tomato and Legends sauce served with Chips", price: 80, tags: ["Double", "Chicken"], image: "https://i.ibb.co/2YhNJXVL/IMG-20251112-WA0029.jpg" },
+                { id: 42, name: "Double Mutton Burger and Chips", description: "2 Mutton patties, lettuce, tomato and Legends sauce served with Chips", price: 80, tags: ["Double", "Mutton"], image: "https://i.ibb.co/Gvnfk1pc/IMG-20251112-WA0028.jpg" }
+            ],
+
+            drinks: [
+                { id: 43, name: "Assorted Liqui Fruit Juices 2Litres", description: "Refreshing fruit juices in various flavors", price: 50, tags: ["2 Litres", "Non-alcoholic"], alcoholic: false, image: "https://i.ibb.co/Jj9TNR64/IMG-20251112-WA0027.jpg" },
+                { id: 44, name: "Assorted Virgin Cocktails/Mocktails", description: "Delicious non-alcoholic mixed drinks", price: 45, tags: ["Carafe", "Non-alcoholic"], alcoholic: false, image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" },
+                { id: 45, name: "Appletizer", description: "Sparkling apple beverage", price: 45, tags: ["Sparkling", "Non-alcoholic"], alcoholic: false, image: "https://i.ibb.co/Tx26DSBy/IMG-20251112-WA0025.jpg" },
+                { id: 46, name: "Assorted Fizzy 2 Litres", description: "Various carbonated soft drinks", price: 35, tags: ["2 Litres", "Non-alcoholic"], alcoholic: false, image: "https://i.ibb.co/fYfG4MHh/IMG-20251112-WA0024.jpg" },
+                { id: 47, name: "Assorted Energy Drinks", description: "Energy boosting beverages", price: 22, tags: ["Energy", "Non-alcoholic"], alcoholic: false, image: "https://i.ibb.co/jvtC7vfd/IMG-20251112-WA0023.jpg" },
+                { id: 48, name: "1.5 Litre Water", description: "Still or sparkling bottled water", price: 20, tags: ["Hydration", "Essential"], alcoholic: false, image: "https://i.ibb.co/PZ922hWZ/IMG-20251112-WA0022.jpg" },
+                { id: 49, name: "Iced Tea", description: "Freshly brewed iced tea with lemon", price: 20, tags: ["Refreshing", "Cold"], alcoholic: false, image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" }
+            ]
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate menu sections
+            populateMenuSections();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Setup category navigation
+            setupCategoryNavigation();
+            
+            // Setup search functionality
+            setupSearch();
+        });
+
+        function populateMenuSections() {
+            for (const category in menuData) {
+                const section = document.getElementById(category);
+                if (section) {
+                    const menuGrid = section.querySelector('.menu-grid');
+                    menuGrid.innerHTML = '';
+                    
+                    menuData[category].forEach(item => {
+                        const menuItem = createMenuItem(item);
+                        menuGrid.appendChild(menuItem);
+                    });
+                }
+            }
+        }
+
+        function createMenuItem(item) {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.dataset.id = item.id;
+            
+            // Use image if available, otherwise use icon
+            let imageContent = '';
+            if (item.image) {
+                imageContent = `<div class="menu-item-image"><img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg';"></div>`;
+            } else {
+                // Determine icon based on category
+                let icon = 'fa-utensils';
+                if (item.tags && item.tags.some(tag => tag.toLowerCase().includes('vegetarian'))) {
+                    icon = 'fa-leaf';
+                } else if (item.tags && item.tags.some(tag => tag.toLowerCase().includes('spicy'))) {
+                    icon = 'fa-pepper-hot';
+                } else if (item.tags && item.tags.some(tag => tag.toLowerCase().includes('seafood'))) {
+                    icon = 'fa-fish';
+                }
+                imageContent = `<div class="menu-item-image"><i class="fas ${icon}"></i></div>`;
+            }
+            
+            menuItem.innerHTML = `
+                ${imageContent}
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <div class="menu-item-title">${item.name}</div>
+                        <div class="menu-item-price">R${item.price}</div>
+                    </div>
+                    <p class="menu-item-description">${item.description}</p>
+                    <div class="menu-item-tags">
+                        ${item.tags ? item.tags.map(tag =>
+                            `<span class="tag ${tag.toLowerCase().includes('spicy') ? 'spicy' : ''}
+                            ${tag.toLowerCase().includes('popular') ? 'popular' : ''}
+                            ${tag.toLowerCase().includes('vegetarian') ? 'vegetarian' : ''}">${tag}</span>`
+                        ).join('') : ''}
+                        ${item.popular ? '<span class="tag popular">Popular</span>' : ''}
+                        ${item.alcoholic ? '<span class="tag">Alcoholic</span>' : ''}
+                    </div>
+                    <div class="menu-actions">
+        <a href="checkout.html" class="btn btn-primary"><i class="fas fa-clipboard-list"></i> Request Order</a>
+                    </div>
+                </div>
+            `;
+            
+            return menuItem;
+        }
+
+        function setupEventListeners() {
+            // Navigation hamburger
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Nav scroll effect (guarded)
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (!navbar) return;
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }, { passive: true });
+            
+            // Close mobile menu on link click
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (hamburger && navMenu) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth scroll for internal anchors (footer category links)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        window.scrollTo({ top: targetEl.offsetTop - 100, behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        function setupCategoryNavigation() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const menuSections = document.querySelectorAll('.menu-section');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Scroll to section
+                    const category = this.dataset.category;
+                    const section = document.getElementById(category);
+                    if (section) {
+                        window.scrollTo({
+                            top: section.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight active category based on scroll position
+            window.addEventListener('scroll', function() {
+                let current = '';
+                menuSections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                categoryBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.category === current) {
+                        btn.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        function setupSearch() {
+            const searchInput = document.querySelector('.menu-search input');
+            if (!searchInput) return;
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                // Search through all menu items
+                for (const category in menuData) {
+                    const section = document.getElementById(category);
+                    if (section) {
+                        const menuGrid = section.querySelector('.menu-grid');
+                        menuGrid.innerHTML = '';
+                        
+                        const filteredItems = menuData[category].filter(item =>
+                            item.name.toLowerCase().includes(searchTerm) ||
+                            item.description.toLowerCase().includes(searchTerm) ||
+                            (item.tags && item.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
+                        );
+                        
+                        if (filteredItems.length > 0) {
+                            filteredItems.forEach(item => {
+                                const menuItem = createMenuItem(item);
+                                menuGrid.appendChild(menuItem);
+                            });
+                        } else {
+                            menuGrid.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-light);">No items found matching "${searchTerm}"</p>`;
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+    <script src="js/site.js" defer></script>
+</body>
+</html>

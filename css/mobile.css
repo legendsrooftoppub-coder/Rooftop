@@ -1,0 +1,111 @@
+/* Mobile-first overrides to make the site highly usable on phones */
+
+/* Base responsive resets */
+img, video { max-width: 100%; height: auto; }
+.img, img { display: block; }
+html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+.container, .content-wrapper, .section { padding: 16px; }
+button, .btn, .cta-btn { min-height: 44px; font-size: 16px; }
+a { -webkit-tap-highlight-color: transparent; }
+
+/* Navbar responsiveness */
+#navbar { position: sticky; top: 0; z-index: 1000; }
+#navbar.scrolled { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.nav-container { padding-left: 12px; padding-right: 12px; }
+
+/* Hide desktop menu and show hamburger on small screens */
+@media (max-width: 768px) {
+  #nav-menu {
+    position: fixed;
+    top: 64px; /* height of navbar */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.25s ease, opacity 0.2s ease, visibility 0.2s ease;
+  }
+  #nav-menu.active { transform: translateY(0); opacity: 1; visibility: visible; }
+  #nav-menu .nav-link { padding: 10px 12px; border-radius: 8px; }
+
+  /* Display hamburger if present */
+  #hamburger, .enhanced-hamburger { display: flex !important; }
+}
+
+/* Hero/headers on mobile */
+@media (max-width: 768px) {
+  .hero, .menu-hero, .gallery-hero {
+    padding: 24px 16px;
+    min-height: 180px;
+    align-items: center;
+  }
+  .hero-title, .menu-hero h1, .section-title { font-size: 20px; line-height: 1.2; }
+  .hero-subtitle, .menu-hero p { font-size: 14px; color: #555; }
+}
+
+/* Grids and cards */
+@media (max-width: 768px) {
+  .menu-grid, .items-grid, .gallery-grid, .booking-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .menu-card, .item-card, .gallery-card, .booking-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+  .menu-card .cta, .item-card .cta, .booking-card .cta { width: 100%; }
+}
+
+/* Tablet layout: use two columns to avoid excess whitespace */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu-grid, .items-grid, .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Ensure menu/gallery images fill cards neatly */
+.menu-item-image img, .menu-card img, .gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Buttons full-width within cards */
+@media (max-width: 480px) {
+  .btn, .cta-btn { width: 100%; }
+}
+
+/* Footer stack */
+@media (max-width: 768px) {
+  .footer, .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  /* Brief highlight when jumping to quick links */
+  #quick-links.highlight { outline: 2px solid rgba(198,40,40,0.35); border-radius: 12px; }
+}
+
+/* Loader compact on mobile */
+@media (max-width: 768px) {
+  .loading-content { width: 88%; max-width: 360px; padding: 16px; }
+  .progress-bar { height: 4px; }
+}
+
+/* Forms */
+@media (max-width: 768px) {
+  form .form-row { flex-direction: column; gap: 12px; }
+  input, select, textarea { font-size: 16px; min-height: 44px; }
+}
+
+/* Utility spacing for small screens */
+@media (max-width: 768px) {
+  .mt-sm { margin-top: 8px; }
+  .mb-sm { margin-bottom: 8px; }
+  .px-sm { padding-left: 12px; padding-right: 12px; }
+}

@@ -1,0 +1,2539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Food - Legends Rooftop</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Enhanced Styles for Order Page */
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #1A1A1A;
+            --accent: #FFD166;
+            --gold: #D4AF37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --background: #FFFFFF;
+            --background-alt: #F8F9FA;
+            --success: #28A745;
+            --warning: #FFC107;
+            --error: #DC3545;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+            --gradient-dark: linear-gradient(135deg, #1A1A1A 0%, #333333 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+            --shadow-xl: 0 12px 24px rgba(0,0,0,0.18);
+            --shadow-glow: 0 0 20px rgba(255, 107, 53, 0.4);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 50%;
+            
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-xxl: 48px;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Enhanced Navigation */
+        .enhanced-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .enhanced-nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) var(--space-md);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-wrapper img {
+            height: 50px;
+            width: auto;
+            border-radius: var(--radius-md);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .logo-wrapper:hover .logo-glow {
+            opacity: 0.6;
+        }
+
+        .logo-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .nav-logo-text span {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--radius-md);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            transform: translateY(0);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .order-btn {
+            background: var(--gradient-primary);
+            color: white !important;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-btn::before {
+            display: none;
+        }
+
+        .btn-glow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .order-btn:hover .btn-glow {
+            left: 100%;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+
+        .cart-btn {
+            position: relative;
+            padding: var(--space-sm);
+        }
+
+        .cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--background-alt);
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon i {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            width: 18px;
+            height: 18px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            border-radius: var(--radius-full);
+            opacity: 0;
+            animation: cartPulse 2s infinite;
+        }
+
+        @keyframes cartPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+
+        .enhanced-hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .enhanced-hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Order Hero Section */
+        .order-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 80px;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.4) 100%), url('https://i.ibb.co/hRqYtzxt/IMG-20251110-WA0047.jpg') center/cover no-repeat;
+        }
+
+        .order-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 var(--space-md);
+        }
+
+        .order-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: var(--space-lg);
+            line-height: 1.1;
+        }
+
+        .order-hero p {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xl);
+            opacity: 0.9;
+        }
+
+        /* Order Content */
+        .order-content {
+            display: flex;
+            gap: var(--space-xl);
+            padding: var(--space-xxl) 0;
+        }
+
+        /* Menu Categories */
+        .menu-categories {
+            flex: 0 0 250px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .category-list {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .category-item {
+            padding: var(--space-lg);
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .category-item:last-child {
+            border-bottom: none;
+        }
+
+        .category-item:hover {
+            background: #f9f9f9;
+        }
+
+        .category-item.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-item.active .category-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .category-icon i {
+            color: var(--primary);
+        }
+
+        .category-item.active .category-icon i {
+            color: white;
+        }
+
+        .category-name {
+            font-weight: 600;
+        }
+
+        /* Menu Items */
+        .menu-items {
+            flex: 1;
+        }
+
+        .category-section {
+            margin-bottom: var(--space-xxl);
+        }
+
+        .category-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-md);
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-item:hover .item-image img {
+            transform: scale(1.05);
+        }
+
+        .item-content {
+            padding: var(--space-lg);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+
+        .item-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .item-description {
+            color: var(--text-light);
+            margin-bottom: var(--space-lg);
+            font-size: 0.9rem;
+        }
+
+        .item-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            background: var(--background-alt);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .quantity-display {
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .add-to-cart {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .item-tags {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .item-tag {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .tag-spicy {
+            background: #ffeaea;
+            color: #e74c3c;
+        }
+
+        .tag-veg {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .tag-popular {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .tag-new {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            flex: 0 0 350px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .cart-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .cart-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .cart-body {
+            padding: var(--space-lg);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: var(--space-xl) 0;
+            color: var(--text-light);
+        }
+
+        .cart-empty i {
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+            color: #e0e0e0;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-quantity-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            background: var(--background-alt);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .cart-quantity-display {
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cart-item-remove {
+            color: var(--error);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .cart-footer {
+            padding: var(--space-lg);
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .cart-totals {
+            margin-bottom: var(--space-lg);
+        }
+
+        .cart-total-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+        }
+
+        .cart-total-line.total {
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-top: 1px solid #f0f0f0;
+            padding-top: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .checkout-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Checkout Modal */
+        .checkout-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .checkout-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .checkout-content {
+            background: white;
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .checkout-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkout-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .checkout-body {
+            padding: var(--space-xl);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius-md);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .payment-method {
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary);
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        .payment-icon {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--text-dark);
+        }
+
+        .payment-label {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .order-summary {
+            background: var(--background-alt);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .order-summary h4 {
+            margin-bottom: var(--space-lg);
+            font-size: 1.1rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-top: 1px solid #e0e0e0;
+            padding-top: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .place-order-btn {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+
+        .place-order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Order Confirmation */
+        .order-confirmation {
+            text-align: center;
+            padding: var(--space-xxl) var(--space-xl);
+        }
+
+        .confirmation-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-xl);
+        }
+
+        .confirmation-icon i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .confirmation-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .confirmation-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto var(--space-xl);
+        }
+
+        .order-details {
+            background: var(--background-alt);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            max-width: 500px;
+            margin: 0 auto var(--space-xl);
+            text-align: left;
+        }
+
+        .order-details h4 {
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+        }
+
+        .detail-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-top: 1px solid #e0e0e0;
+            padding-top: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .confirmation-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+        }
+
+        /* Enhanced Footer */
+.enhanced-footer {
+    background: var(--secondary);
+    color: white;
+    position: relative;
+    padding-top: calc(var(--space-xxl) + 100px);
+}
+
+.footer-wave {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%231a1a1a"></path></svg>');
+    background-size: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xxl);
+    position: relative;
+    z-index: 1;
+}
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: white;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-logo-text h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+        }
+
+        .footer-logo-text span {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+
+        .enhanced-social {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .social-link {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .social-link:hover .social-glow {
+            opacity: 1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon i {
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--space-xl) 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .footer-cta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .footer-cta h4 {
+            color: white;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .btn-small {
+            padding: var(--space-sm) var(--space-lg);
+            font-size: 0.9rem;
+        }
+
+        .footer-copyright {
+            text-align: right;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-copyright p {
+            margin-bottom: var(--space-xs);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .order-content {
+                flex-direction: column;
+            }
+            
+            .menu-categories {
+                position: static;
+                flex: none;
+                margin-bottom: var(--space-xl);
+            }
+            
+            .category-list {
+                display: flex;
+                overflow-x: auto;
+                padding: var(--space-sm);
+            }
+            
+            .category-item {
+                flex-shrink: 0;
+                border-bottom: none;
+                border-right: 1px solid #f0f0f0;
+            }
+            
+            .category-item:last-child {
+                border-right: none;
+            }
+            
+            .cart-sidebar {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                max-width: 400px;
+                height: 100vh;
+                z-index: 1000;
+                transition: right 0.3s ease;
+                border-radius: 0;
+            }
+            
+            .cart-sidebar.active {
+                right: 0;
+            }
+            
+            .cart-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .cart-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: var(--space-lg);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .enhanced-hamburger {
+                display: flex;
+            }
+            
+            .order-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .confirmation-actions {
+                flex-direction: column;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-cta {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .order-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+            
+            .cart-sidebar {
+                max-width: 100%;
+            }
+        }
+</style>
+<!-- Marketing-only overrides removed: cart and checkout UI visible for ordering -->
+  <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-spinner">
+                    <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends Logo">
+                </div>
+            </div>
+            <div class="loading-text">
+                <h3>Legends Rooftop</h3>
+                <p>Loading Kasi flavors...</p>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Enhanced Navigation -->
+    <nav class="navbar enhanced-nav" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-wrapper">
+                    <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends Rooftop Logo" loading="lazy" decoding="async">
+                    <div class="logo-glow"></div>
+                </div>
+                <div class="nav-logo-text">
+                    <h1>LEGENDS</h1>
+                    <span>Rooftop Pub & Restaurant</span>
+                </div>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link" data-text="Home">Home</a>
+                <a href="about.html" class="nav-link" data-text="About">About</a>
+<a href="Menuu.html" class="nav-link" data-text="Menu">Menu</a>
+                <a href="gallery.html" class="nav-link" data-text="Gallery">Gallery</a>
+                <a href="booking.html" class="nav-link" data-text="Bookings">Bookings</a>
+        <a href="checkout.html" class="nav-link order-btn pulse active" data-text="Order Now">
+                    <span>Order Now</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <!-- Accounts and Cart removed for marketing-only site -->
+            </div>
+            <div class="hamburger enhanced-hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        <div class="nav-highlight"></div>
+    </nav>
+
+    <!-- Order Hero Section -->
+    <section class="order-hero">
+        <div class="order-hero-content">
+            <h1>Order Your Kasi Favorites</h1>
+            <p>All orders require phone call confirmation before preparation or delivery.</p>
+        </div>
+    </section>
+
+    <!-- Order Request (Email + Phone Confirmation) -->
+    <section class="container" id="order-request">
+        <div class="section-header" style="margin-top:24px;">
+            <h2>Send an Order Request</h2>
+            <p>Submit your request and we’ll call to confirm details, timing, and availability.</p>
+        </div>
+        <form id="order-request-form" data-order-email="orders@example.com" class="order-request-form" style="max-width:820px;margin:0 auto;" action="https://formspree.io/f/mblvglba" method="POST">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label" for="req-name">Full Name</label>
+                    <input type="text" class="form-control" id="req-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="req-phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="req-phone" name="phone" required pattern="^(\+27|0)[6-8][0-9]{8}$" title="South African mobile numbers only: e.g., 0812345678 or +27812345678">
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label" for="req-alt-phone">Alternate Phone (optional)</label>
+                    <input type="tel" class="form-control" id="req-alt-phone" name="altPhone" placeholder="e.g., +27 79 000 0000">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="req-id">South African ID Number (optional)</label>
+                    <input type="text" class="form-control" id="req-id" name="saIdNumber" placeholder="13-digit ID">
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label" for="req-email">Email (optional)</label>
+                    <input type="email" class="form-control" id="req-email" name="email" placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="req-preferred">Preferred Time</label>
+                    <input type="text" class="form-control" id="req-preferred" name="preferredTime" placeholder="e.g., Today 6:30 PM or Tomorrow lunch">
+                </div>
+            </div>
+            <div class="form-group">
+                    <label class="form-label" for="req-delivery">Delivery or Pickup</label>
+                    <select class="form-control" id="req-delivery" name="orderType">
+                        <option value="pickup">Pickup</option>
+                        <option value="delivery">Delivery</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                    <label class="form-label" for="req-address">Address (for delivery)</label>
+                    <textarea class="form-control" id="req-address" name="address" rows="2" placeholder="Street, suburb"></textarea>
+            </div>
+            <div class="form-group" style="display:flex;align-items:flex-start;gap:8px;">
+                <input type="checkbox" id="req-kyc-consent" name="kycConsent" required>
+                <label class="form-label" for="req-kyc-consent" style="margin:0;">I consent to phone verification and providing accurate details for order confirmation and follow-up.</label>
+            </div>
+            <div class="form-group">
+                    <label class="form-label" for="req-details">Order Details</label>
+                    <textarea class="form-control" id="req-details" name="orderDetails" rows="4" placeholder="List items, quantities, and any notes."></textarea>
+            </div>
+            <button class="place-order-btn" id="send-order-request" type="submit">
+                <i class="fas fa-paper-plane"></i>
+                Send Order Request
+            </button>
+            <p style="margin-top:12px;color:#555;text-align:center;">
+                We will call you shortly to confirm and schedule your order.
+            </p>
+        </form>
+        <div id="order-request-status" style="max-width:820px;margin:12px auto 0;text-align:center;color:#2e7d32;font-weight:600;"></div>
+    </section>
+
+    <!-- Order Content -->
+    <section class="order-content container">
+        <!-- Menu Categories -->
+        <div class="menu-categories">
+            <div class="category-list">
+                <div class="category-item active" data-category="braai">
+                    <div class="category-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="category-name">Braai Specials</div>
+                </div>
+                <div class="category-item" data-category="kota">
+                    <div class="category-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div class="category-name">Bunny Chow Corner</div>
+                </div>
+                <div class="category-item" data-category="traditional">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="category-name">Traditional</div>
+                </div>
+                <div class="category-item" data-category="drinks">
+                    <div class="category-icon">
+                        <i class="fas fa-beer"></i>
+                    </div>
+                    <div class="category-name">Drinks</div>
+                </div>
+                <div class="category-item" data-category="desserts">
+                    <div class="category-icon">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <div class="category-name">Desserts</div>
+                </div>
+                <div class="category-item" data-category="specials">
+                    <div class="category-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="category-name">Today's Specials</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="menu-items">
+            <!-- Braai Specials -->
+            <div class="category-section" id="braai">
+                <h2 class="category-title">Braai Specials</h2>
+                <div class="items-grid">
+                    <!-- Item 1 -->
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="https://i.ibb.co/0j4Wq4F/braai-meat.jpg" alt="Braai Meat Platter" loading="lazy" decoding="async" srcset="https://i.ibb.co/0j4Wq4F/braai-meat.jpg 1x, https://i.ibb.co/0j4Wq4F/braai-meat.jpg 2x" sizes="(max-width: 600px) 100vw, 600px">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3 class="item-name">Braai Meat Platter</h3>
+                                <div class="item-price">R185</div>
+                            </div>
+                            <p class="item-description">Mixed grill with boerewors, lamb chops, chicken, and steak served with pap and chakalaka</p>
+                            <div class="item-actions">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-item="braai-platter">-</button>
+                                    <span class="quantity-display" data-item="braai-platter">0</span>
+                                    <button class="quantity-btn plus" data-item="braai-platter">+</button>
+                                </div>
+                                <button class="add-to-cart" data-item="braai-platter">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                            <div class="item-tags">
+                                <span class="item-tag tag-popular">Popular</span>
+                                <span class="item-tag tag-spicy">Spicy</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="https://i.ibb.co/7YxJQ0N/boerewors-roll.jpg" alt="Boerewors Roll" loading="lazy" decoding="async" srcset="https://i.ibb.co/7YxJQ0N/boerewors-roll.jpg 1x, https://i.ibb.co/7YxJQ0N/boerewors-roll.jpg 2x" sizes="(max-width: 600px) 100vw, 600px">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3 class="item-name">Boerewors Roll</h3>
+                                <div class="item-price">R65</div>
+                            </div>
+                            <p class="item-description">Traditional South African sausage in a fresh roll with tomato and onion relish</p>
+                            <div class="item-actions">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-item="boerewors-roll">-</button>
+                                    <span class="quantity-display" data-item="boerewors-roll">0</span>
+                                    <button class="quantity-btn plus" data-item="boerewors-roll">+</button>
+                                </div>
+                                <button class="add-to-cart" data-item="boerewors-roll">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                            <div class="item-tags">
+                                <span class="item-tag tag-popular">Popular</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="https://i.ibb.co/6Yd4J0x/chicken-braai.jpg" alt="Braai Chicken" loading="lazy" decoding="async" srcset="https://i.ibb.co/6Yd4J0x/chicken-braai.jpg 1x, https://i.ibb.co/6Yd4J0x/chicken-braai.jpg 2x" sizes="(max-width: 600px) 100vw, 600px">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3 class="item-name">Braai Chicken</h3>
+                                <div class="item-price">R120</div>
+                            </div>
+                            <p class="item-description">Quarter chicken marinated in special Kasi spices, served with salad</p>
+                            <div class="item-actions">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-item="braai-chicken">-</button>
+                                    <span class="quantity-display" data-item="braai-chicken">0</span>
+                                    <button class="quantity-btn plus" data-item="braai-chicken">+</button>
+                                </div>
+                                <button class="add-to-cart" data-item="braai-chicken">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                            <div class="item-tags">
+                                <span class="item-tag tag-spicy">Spicy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kota Corner -->
+            <div class="category-section" id="kota" style="display: none;">
+                <h2 class="category-title">Bunny Chow Corner</h2>
+                <div class="items-grid">
+                    <!-- Item 1 -->
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="https://i.ibb.co/0Q8R8Y0/classic-kota.jpg" alt="Classic Kota" loading="lazy" decoding="async" srcset="https://i.ibb.co/0Q8R8Y0/classic-kota.jpg 1x, https://i.ibb.co/0Q8R8Y0/classic-kota.jpg 2x" sizes="(max-width: 600px) 100vw, 600px">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3 class="item-name">Classic Kota</h3>
+                                <div class="item-price">R55</div>
+                            </div>
+                            <p class="item-description">Quarter loaf filled with polony, cheese, Russian, atchar and chips</p>
+                            <div class="item-actions">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-item="classic-kota">-</button>
+                                    <span class="quantity-display" data-item="classic-kota">0</span>
+                                    <button class="quantity-btn plus" data-item="classic-kota">+</button>
+                                </div>
+                                <button class="add-to-cart" data-item="classic-kota">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                            <div class="item-tags">
+                                <span class="item-tag tag-popular">Popular</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="https://i.ibb.co/7W2K6qL/steak-kota.jpg" alt="Steak Kota" loading="lazy" decoding="async" srcset="https://i.ibb.co/7W2K6qL/steak-kota.jpg 1x, https://i.ibb.co/7W2K6qL/steak-kota.jpg 2x" sizes="(max-width: 600px) 100vw, 600px">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3 class="item-name">Steak Kota</h3>
+                                <div class="item-price">R85</div>
+                            </div>
+                            <p class="item-description">Quarter loaf with steak, egg, cheese, Russian and chips</p>
+                            <div class="item-actions">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-item="steak-kota">-</button>
+                                    <span class="quantity-display" data-item="steak-kota">0</span>
+                                    <button class="quantity-btn plus" data-item="steak-kota">+</button>
+                                </div>
+                                <button class="add-to-cart" data-item="steak-kota">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="https://i.ibb.co/0j4Wq4F/braai-meat.jpg" alt="Chicken Kota" loading="lazy" decoding="async" srcset="https://i.ibb.co/0j4Wq4F/braai-meat.jpg 1x, https://i.ibb.co/0j4Wq4F/braai-meat.jpg 2x" sizes="(max-width: 600px) 100vw, 600px">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3 class="item-name">Chicken Kota</h3>
+                                <div class="item-price">R75</div>
+                            </div>
+                            <p class="item-description">Quarter loaf with grilled chicken, cheese, egg and chips</p>
+                            <div class="item-actions">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-item="chicken-kota">-</button>
+                                    <span class="quantity-display" data-item="chicken-kota">0</span>
+                                    <button class="quantity-btn plus" data-item="chicken-kota">+</button>
+                                </div>
+                                <button class="add-to-cart" data-item="chicken-kota">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Traditional Dishes -->
+            <div class="category-section" id="traditional" style="display: none;">
+                <h2 class="category-title">Traditional Dishes</h2>
+                <div class="items-grid">
+                    <!-- Item 1 -->
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="https://i.ibb.co/0j4Wq4F/braai-meat.jpg" alt="Umngqusho" loading="lazy" decoding="async" srcset="https://i.ibb.co/0j4Wq4F/braai-meat.jpg 1x, https://i.ibb.co/0j4Wq4F/braai-meat.jpg 2x" sizes="(max-width: 600px) 100vw, 600px">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3 class="item-name">Umngqusho</h3>
+                                <div class="item-price">R95</div>
+                            </div>
+                            <p class="item-description">Samp and beans with meat stew, a traditional Xhosa dish</p>
+                            <div class="item-actions">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-item="umngqusho">-</button>
+                                    <span class="quantity-display" data-item="umngqusho">0</span>
+                                    <button class="quantity-btn plus" data-item="umngqusho">+</button>
+                                </div>
+                                <button class="add-to-cart" data-item="umngqusho">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                            <div class="item-tags">
+                                <span class="item-tag tag-veg">Vegetarian Option</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="https://i.ibb.co/0j4Wq4F/braai-meat.jpg" alt="Dombolo" loading="lazy" decoding="async" srcset="https://i.ibb.co/0j4Wq4F/braai-meat.jpg 1x, https://i.ibb.co/0j4Wq4F/braai-meat.jpg 2x" sizes="(max-width: 600px) 100vw, 600px">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3 class="item-name">Dombolo & Stew</h3>
+                                <div class="item-price">R85</div>
+                            </div>
+                            <p class="item-description">Steamed bread served with beef or chicken stew</p>
+                            <div class="item-actions">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-item="dombolo">-</button>
+                                    <span class="quantity-display" data-item="dombolo">0</span>
+                                    <button class="quantity-btn plus" data-item="dombolo">+</button>
+                                </div>
+                                <button class="add-to-cart" data-item="dombolo">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- More categories would be added similarly -->
+        </div>
+
+        <!-- Cart Sidebar -->
+        <div class="cart-sidebar" id="cart-sidebar">
+            <div class="cart-header">
+                <h3>Your Order</h3>
+            </div>
+            <div class="cart-body" id="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
+                <div class="cart-empty">
+                    <i class="fas fa-shopping-bag"></i>
+                    <p>Your cart is empty</p>
+                    <p>Add some delicious items!</p>
+                </div>
+            </div>
+            <div class="cart-footer">
+            <div class="cart-totals">
+                <div class="cart-total-line">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">R0.00</span>
+                </div>
+                <div class="cart-total-line">
+                    <span>Delivery Fee</span>
+                    <span id="cart-delivery">R35.00</span>
+                </div>
+                <div class="cart-total-line total">
+                    <span>Total</span>
+                    <span id="cart-total">R0.00</span>
+                </div>
+            </div>
+                <button class="checkout-btn" id="clear-cart-btn" style="background:#1A1A1A;margin-bottom:12px;">
+                    <i class="fas fa-trash"></i>
+                    Clear Cart
+                </button>
+        <button class="checkout-btn" id="proceed-checkout-btn" onclick="location.href='checkout.html'">
+                    <i class="fas fa-clipboard-check"></i>
+                    Review & Confirm (Phone)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Overlay (for mobile) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Checkout disabled: Orders are confirmed via phone call -->
+    <div class="checkout-disabled" style="max-width:820px;margin:24px auto;text-align:center;color:#444;">
+        <h3 style="margin-bottom:8px;">Checkout Disabled</h3>
+        <p>We no longer process online payments or cart checkout. Please use the Order Request form above and we’ll call to confirm.</p>
+    </div>
+
+    <!-- Order Confirmation -->
+    <div class="checkout-modal" id="confirmation-modal">
+        <div class="checkout-content">
+            <div class="order-confirmation">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2 class="confirmation-title">Order Confirmed!</h2>
+                <p class="confirmation-text">Thank you for your order. We're preparing your Kasi favorites and will notify you when it's ready.</p>
+                
+                <div class="order-details">
+                    <h4>Order Details</h4>
+                    <div class="detail-item">
+                        <span>Order Number</span>
+                        <span id="confirmation-number">LEG-2025-001</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Estimated Time</span>
+                        <span id="confirmation-time">30-45 minutes</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Delivery To</span>
+                        <span id="confirmation-address">-</span>
+                    </div>
+                    <div class="detail-total">
+                        <span>Total</span>
+                        <span id="confirmation-total">R0.00</span>
+                    </div>
+                </div>
+                
+                <div class="confirmation-actions">
+                    <button class="btn btn-secondary" id="new-order-btn">
+                        <i class="fas fa-utensils"></i>
+                        New Order
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-print"></i>
+                        Print Receipt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer enhanced-footer">
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-wrapper">
+                            <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends Rooftop Logo" loading="lazy" decoding="async">
+                        </div>
+                        <div class="footer-logo-text">
+                            <h3>LEGENDS</h3>
+                            <span>Rooftop Pub & Restaurant</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">Bringing authentic Kasi flavors to your doorstep with modern convenience and traditional taste.</p>
+                    <div class="social-links enhanced-social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section" id="quick-links">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+<li><a href="Menuu.html">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="booking.html">Book Table</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+<li><a href="Menuu.html#braai">Braai Specials</a></li>
+<li><a href="Menuu.html#kota">Bunny Chow Corner</a></li>
+<li><a href="Menuu.html#dinner">Traditional Dishes</a></li>
+<li><a href="Menuu.html#drinks">Drinks & Beverages</a></li>
+<li><a href="Menuu.html#starters">Desserts</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span> 296 Dingani Rd, Umlazi J, Umlazi, 4066 </span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>078 734 8487</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+27826766105</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>mduduzi100@icloud.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <span>Monday - Sunday = 12:00pm till Late</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-cta">
+                    <h4>Ready to experience Legends?</h4>
+        <a href="checkout.html" class="btn btn-primary btn-small">
+                        <span>Order Now</span>
+                        <i class="fas fa-bolt"></i>
+                    </a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Legends Rooftop Pub & Restaurant. All rights reserved.</p>
+                    <p>Established 2019 • Made with ❤️ for the Kasi community</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Order System JavaScript
+        class OrderSystem {
+            constructor() {
+                this.cart = [];
+                this.menuItems = this.getMenuItems();
+                this.currentCategory = 'braai';
+                this.deliveryOption = 'delivery';
+                this.init();
+            }
+            
+            init() {
+                this.loadCartFromStorage();
+                this.mergePendingOrderFromStorage();
+                this.setupEventListeners();
+                this.renderMenuItems();
+                this.updateCartDisplay();
+            }
+            
+            setupEventListeners() {
+                // Navigation
+                const hamburger = document.getElementById('hamburger');
+                const navMenu = document.getElementById('nav-menu');
+                if (hamburger && navMenu) {
+                    hamburger.addEventListener('click', () => {
+                        hamburger.classList.toggle('active');
+                        navMenu.classList.toggle('active');
+                    });
+                }
+
+                // Nav scroll effect (guarded)
+                window.addEventListener('scroll', () => {
+                    const navbar = document.getElementById('navbar');
+                    if (!navbar) return;
+                    if (window.scrollY > 100) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }, { passive: true });
+
+                // Category selection
+                document.querySelectorAll('.category-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const category = item.dataset.category;
+                        this.switchCategory(category);
+                    });
+                });
+                
+                // Quantity controls
+                document.querySelectorAll('.quantity-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const target = e.currentTarget;
+                        const itemId = target.dataset.item;
+                        const isPlus = target.classList.contains('plus');
+                        this.updateQuantity(itemId, isPlus);
+                    });
+                });
+                
+                // Add to cart buttons
+                document.querySelectorAll('.add-to-cart').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const target = e.currentTarget;
+                        const itemId = target.dataset.item;
+                        this.addToCart(itemId);
+                    });
+                });
+                
+                // Cart toggle (guarded)
+                const cartButton = document.getElementById('cart-button');
+                if (cartButton) {
+                    cartButton.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.toggleCart();
+                    });
+                }
+                
+                // Checkout disabled: do not attach checkout handlers
+                const checkoutBtnEl = document.getElementById('checkout-btn');
+                if (checkoutBtnEl) checkoutBtnEl.disabled = true;
+                
+                // Payment method selection
+                document.querySelectorAll('.payment-method').forEach(method => {
+                    method.addEventListener('click', () => {
+                        document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                        method.classList.add('selected');
+                    });
+                });
+
+                // Delivery/pickup selection (Order Request form)
+                const deliverySelect = document.getElementById('req-delivery');
+                if (deliverySelect) {
+                    deliverySelect.addEventListener('change', (e) => {
+                        this.deliveryOption = e.target.value;
+                        this.updateCartDisplay();
+                    });
+                }
+                
+                // New order button (guarded)
+                const newOrderBtn = document.getElementById('new-order-btn');
+                if (newOrderBtn) {
+                    newOrderBtn.addEventListener('click', () => { this.newOrder(); });
+                }
+                
+                // Close cart on overlay click (mobile, guarded)
+                const cartOverlay = document.getElementById('cart-overlay');
+                if (cartOverlay) {
+                    cartOverlay.addEventListener('click', () => { this.toggleCart(); });
+                }
+
+                const clearBtn = document.getElementById('clear-cart-btn');
+                if (clearBtn) {
+                    clearBtn.addEventListener('click', () => {
+                        this.cart = [];
+                        this.updateCartDisplay();
+                        this.saveCart();
+                        this.showMessage('Cart cleared', 'info');
+                    });
+                }
+
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'legendsCart') {
+                        this.loadCartFromStorage();
+                        this.updateCartDisplay();
+                    }
+                });
+            }
+            
+            switchCategory(category) {
+                // Update active category
+                document.querySelectorAll('.category-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelector(`[data-category="${category}"]`).classList.add('active');
+                
+                // Show/hide category sections
+                document.querySelectorAll('.category-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById(category).style.display = 'block';
+                
+                // Update current category
+                this.currentCategory = category;
+                
+                // Scroll to category
+                document.getElementById(category).scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            updateQuantity(itemId, isPlus) {
+                const quantityDisplay = document.querySelector(`.quantity-display[data-item="${itemId}"]`);
+                let quantity = parseInt(quantityDisplay.textContent);
+                
+                if (isPlus) {
+                    quantity++;
+                } else {
+                    quantity = Math.max(0, quantity - 1);
+                }
+                
+                quantityDisplay.textContent = quantity;
+            }
+            
+            addToCart(itemId) {
+                const quantityDisplay = document.querySelector(`.quantity-display[data-item="${itemId}"]`);
+                const quantity = parseInt(quantityDisplay.textContent);
+                
+                if (quantity === 0) return;
+                
+                // Find the menu item
+                const menuItem = this.menuItems.find(item => item.id === itemId);
+                if (!menuItem) return;
+                
+                // Check if item already in cart
+                const existingItemIndex = this.cart.findIndex(item => item.id === itemId);
+                
+                if (existingItemIndex !== -1) {
+                    // Update quantity
+                    this.cart[existingItemIndex].quantity += quantity;
+                } else {
+                    // Add new item
+                    this.cart.push({
+                        id: itemId,
+                        name: menuItem.name,
+                        price: menuItem.price,
+                        quantity: quantity,
+                        image: menuItem.image
+                    });
+                }
+                
+                // Reset quantity display
+                quantityDisplay.textContent = '0';
+                
+                // Update cart display
+                this.updateCartDisplay();
+                this.saveCart();
+                
+                // Show success message
+                this.showMessage(`${quantity} ${menuItem.name} added to cart!`, 'success');
+                
+                // Open cart on mobile
+                if (window.innerWidth <= 1024) {
+                    this.toggleCart();
+                }
+            }
+            
+            updateCartDisplay() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                const cartCount = document.getElementById('cart-count');
+                const cartSubtotal = document.getElementById('cart-subtotal');
+                const cartTotal = document.getElementById('cart-total');
+                const deliveryLabelEl = document.getElementById('cart-delivery');
+                const proceedBtn = document.getElementById('proceed-checkout-btn');
+
+                // If key elements are missing, skip UI update to avoid errors
+                if (!cartItemsContainer || !cartCount || !cartSubtotal || !cartTotal) return;
+
+                // Update cart count
+                const totalItems = this.cart.reduce((total, item) => total + item.quantity, 0);
+                cartCount.textContent = totalItems;
+                
+                if (this.cart.length === 0) {
+                    // Show empty cart
+                    cartItemsContainer.innerHTML = `
+                        <div class="cart-empty">
+                            <i class="fas fa-shopping-bag"></i>
+                            <p>Your cart is empty</p>
+                            <p>Add some delicious items!</p>
+                        </div>
+                    `;
+                    
+                    // Disable proceed button
+                    if (proceedBtn) { proceedBtn.disabled = true; proceedBtn.style.opacity = '0.6'; }
+                    
+                    // Update totals
+                    const deliveryFee = this.calculateDeliveryFee();
+                    cartSubtotal.textContent = 'R0.00';
+                    cartTotal.textContent = `R${deliveryFee.toFixed(2)}`;
+                    if (deliveryLabelEl) deliveryLabelEl.textContent = `R${deliveryFee.toFixed(2)}`;
+                    
+                    return;
+                }
+                
+                // Enable proceed when items exist
+                if (proceedBtn) { proceedBtn.disabled = false; proceedBtn.style.opacity = '1'; }
+                
+                // Calculate subtotal
+                const subtotal = this.cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                const deliveryFee = this.calculateDeliveryFee();
+                const total = subtotal + deliveryFee;
+                
+                // Update totals
+                cartSubtotal.textContent = `R${subtotal.toFixed(2)}`;
+                cartTotal.textContent = `R${total.toFixed(2)}`;
+                if (deliveryLabelEl) deliveryLabelEl.textContent = `R${deliveryFee.toFixed(2)}`;
+                
+                // Render cart items
+                cartItemsContainer.innerHTML = '';
+                this.cart.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-image">
+                            <img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async">
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">R${item.price.toFixed(2)}</div>
+                            <div class="cart-item-controls">
+                                <div class="cart-item-quantity">
+                                    <button class="cart-quantity-btn minus" data-item="${item.id}">-</button>
+                                    <span class="cart-quantity-display">${item.quantity}</span>
+                                    <button class="cart-quantity-btn plus" data-item="${item.id}">+</button>
+                                </div>
+                                <button class="cart-item-remove" data-item="${item.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                
+                // Add event listeners to cart item controls
+                document.querySelectorAll('.cart-quantity-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const target = e.currentTarget;
+                        const itemId = target.dataset.item;
+                        const isPlus = target.classList.contains('plus');
+                        this.updateCartItemQuantity(itemId, isPlus);
+                    });
+                });
+                
+                document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const target = e.currentTarget;
+                        const itemId = target.dataset.item;
+                        this.removeFromCart(itemId);
+                    });
+                });
+            }
+            
+            updateCartItemQuantity(itemId, isPlus) {
+                const itemIndex = this.cart.findIndex(item => item.id === itemId);
+                if (itemIndex === -1) return;
+                
+                if (isPlus) {
+                    this.cart[itemIndex].quantity++;
+                } else {
+                    this.cart[itemIndex].quantity--;
+                    
+                    // Remove if quantity is 0
+                    if (this.cart[itemIndex].quantity === 0) {
+                        this.cart.splice(itemIndex, 1);
+                    }
+                }
+                
+                this.updateCartDisplay();
+                this.saveCart();
+            }
+            
+            removeFromCart(itemId) {
+                this.cart = this.cart.filter(item => item.id !== itemId);
+                this.updateCartDisplay();
+                this.saveCart();
+                
+                this.showMessage('Item removed from cart', 'info');
+            }
+            
+            toggleCart() {
+                const cartSidebar = document.getElementById('cart-sidebar');
+                const cartOverlay = document.getElementById('cart-overlay');
+                
+                cartSidebar.classList.toggle('active');
+                cartOverlay.classList.toggle('active');
+            }
+            
+            openCheckout() {
+                this.showMessage('Online checkout is disabled. Please use the Order Request form or contact us directly.', 'error');
+            }
+            
+            closeCheckout() {
+                // No-op: checkout modal is removed/disabled
+            }
+            
+            submitOrder() {
+                this.showMessage('Online checkout is disabled. Please use the Order Request form or contact us directly.', 'error');
+            }
+            
+            validateCheckoutForm(formData) {
+                // Always invalid: checkout flow is disabled
+                return false;
+            }
+            
+            newOrder() {
+                document.getElementById('confirmation-modal').classList.remove('active');
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            showMessage(message, type) {
+                // Create message element
+                const messageEl = document.createElement('div');
+                messageEl.className = `message message-${type}`;
+                messageEl.textContent = message;
+                
+                // Style based on type
+                const styles = {
+                    position: 'fixed',
+                    top: '100px',
+                    right: '20px',
+                    padding: 'var(--space-md) var(--space-lg)',
+                    borderRadius: 'var(--radius-md)',
+                    color: 'white',
+                    fontWeight: '600',
+                    zIndex: '10000',
+                    animation: 'fadeIn 0.3s, fadeOut 0.3s 2.7s'
+                };
+                
+                if (type === 'success') {
+                    styles.background = 'var(--success)';
+                } else if (type === 'error') {
+                    styles.background = 'var(--error)';
+                } else {
+                    styles.background = 'var(--primary)';
+                }
+                
+                // Apply styles
+                Object.assign(messageEl.style, styles);
+                
+                // Add to page
+                document.body.appendChild(messageEl);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    if (messageEl.parentNode) {
+                        messageEl.parentNode.removeChild(messageEl);
+                    }
+                }, 3000);
+            }
+            
+            renderMenuItems() {
+                // This would typically be done server-side
+                // For this demo, we're using the static HTML
+            }
+            
+            getMenuItems() {
+                const base = [
+                    { id: 'braai-platter', name: 'Braai Meat Platter', price: 185, image: 'https://i.ibb.co/0j4Wq4F/braai-meat.jpg', category: 'braai' },
+                    { id: 'boerewors-roll', name: 'Boerewors Roll', price: 65, image: 'https://i.ibb.co/7YxJQ0N/boerewors-roll.jpg', category: 'braai' },
+                    { id: 'braai-chicken', name: 'Braai Chicken', price: 120, image: 'https://i.ibb.co/6Yd4J0x/chicken-braai.jpg', category: 'braai' },
+                    { id: 'classic-kota', name: 'Classic Kota', price: 55, image: 'https://i.ibb.co/0Q8R8Y0/classic-kota.jpg', category: 'kota' },
+                    { id: 'steak-kota', name: 'Steak Kota', price: 85, image: 'https://i.ibb.co/7W2K6qL/steak-kota.jpg', category: 'kota' },
+                    { id: 'chicken-kota', name: 'Chicken Kota', price: 75, image: 'https://i.ibb.co/0j4Wq4F/braai-meat.jpg', category: 'kota' },
+                    { id: 'umngqusho', name: 'Umngqusho', price: 95, image: 'https://i.ibb.co/0j4Wq4F/braai-meat.jpg', category: 'traditional' },
+                    { id: 'dombolo', name: 'Dombolo & Stew', price: 85, image: 'https://i.ibb.co/0j4Wq4F/braai-meat.jpg', category: 'traditional' }
+                ];
+
+                const external = [
+                    { id: 'burgers-1', name: 'Cheese Burger', price: 55, image: 'https://i.ibb.co/M510K2Tv/IMG-20251112-WA0023.jpg', category: 'burgers' },
+                    { id: 'burgers-2', name: 'Chicken Burger', price: 50, image: 'https://i.ibb.co/XfZq40DH/IMG-20251112-WA0088.jpg', category: 'burgers' },
+                    { id: 'burgers-3', name: 'Beef Burger', price: 60, image: 'https://i.ibb.co/N2jk4mtH/IMG-20251112-WA0087.jpg', category: 'burgers' },
+                    { id: 'burgers-4', name: 'Double Trouble Burger', price: 85, image: 'https://i.ibb.co/RpwHQjt6/IMG-20251112-WA0086.jpg', category: 'burgers' },
+
+                    { id: 'combos-1', name: 'Chicken & Chips Combo', price: 70, image: 'https://i.ibb.co/pj0fJXxx/IMG-20251112-WA0085.jpg', category: 'combos' },
+                    { id: 'combos-2', name: 'Burger & Chips Combo', price: 75, image: 'https://i.ibb.co/1GsmmCVX/IMG-20251112-WA0084.jpg', category: 'combos' },
+                    { id: 'combos-3', name: 'Wings & Chips Combo', price: 80, image: 'https://i.ibb.co/0VRxZz1F/IMG-20251112-WA0083.jpg', category: 'combos' },
+
+                    { id: 'grilled-meals-1', name: '1/4 Chicken', price: 45, image: 'https://i.ibb.co/chqndcxk/IMG-20251112-WA0082.jpg', category: 'grilled-meals' },
+                    { id: 'grilled-meals-2', name: '1/2 Chicken', price: 85, image: 'https://i.ibb.co/RGFLhTCZ/IMG-20251112-WA0081.jpg', category: 'grilled-meals' },
+                    { id: 'grilled-meals-3', name: 'Full Chicken', price: 150, image: 'https://i.ibb.co/HDXddz4h/IMG-20251112-WA0080.jpg', category: 'grilled-meals' },
+                    { id: 'grilled-meals-4', name: 'Chicken Wings', price: 65, image: 'https://i.ibb.co/x8DY0hLx/IMG-20251112-WA0079.jpg', category: 'grilled-meals' },
+
+                    { id: 'snacks-1', name: 'Russian & Chips', price: 35, image: 'https://i.ibb.co/SXn4Yb0p/IMG-20251112-WA0078.jpg', category: 'snacks' },
+                    { id: 'snacks-2', name: 'Chips Only', price: 25, image: 'https://i.ibb.co/VYrYQLPY/IMG-20251112-WA0077.jpg', category: 'snacks' },
+                    { id: 'snacks-3', name: 'Cheese Chips', price: 35, image: 'https://i.ibb.co/XZMKQWmF/IMG-20251112-WA0076.jpg', category: 'snacks' },
+
+                    { id: 'drinks-1', name: 'Soft Drinks', price: 15, image: 'https://i.ibb.co/gZpQQXcc/IMG-20251112-WA0075.jpg', category: 'drinks' },
+                    { id: 'drinks-2', name: 'Juice', price: 20, image: 'https://i.ibb.co/nqzfkhqq/IMG-20251112-WA0074.jpg', category: 'drinks' },
+                    { id: 'drinks-3', name: 'Water', price: 10, image: 'https://i.ibb.co/k6VyKD3V/IMG-20251112-WA0073.jpg', category: 'drinks' },
+
+                    { id: 'specials-1', name: 'Pub Platter', price: 180, image: 'https://i.ibb.co/F4LK5FZT/IMG-20251112-WA0072.jpg', category: 'specials' },
+                    { id: 'specials-2', name: 'Legends Mixed Grill', price: 140, image: 'https://i.ibb.co/n871jXDT/IMG-20251112-WA0071.jpg', category: 'specials' },
+                    { id: 'specials-3', name: 'Family Feast', price: 250, image: 'https://i.ibb.co/6Jm61674/IMG-20251112-WA0070.jpg', category: 'specials' }
+                ];
+
+                return base.concat(external);
+            }
+
+            loadCartFromStorage() {
+                try {
+                    const stored = localStorage.getItem('legendsCart');
+                    this.cart = stored ? JSON.parse(stored) : [];
+                } catch (_) {
+                    this.cart = [];
+                }
+            }
+
+            saveCart() {
+                try {
+                    localStorage.setItem('legendsCart', JSON.stringify(this.cart));
+                } catch (_) {}
+            }
+
+            calculateDeliveryFee() {
+                if (this.deliveryOption === 'pickup') return 0;
+                // Use distance field if present; default to 5km
+                let km = 5;
+                try {
+                    const input = document.getElementById('distance-km');
+                    if (input) {
+                        const v = parseFloat(input.value);
+                        if (!isNaN(v) && v >= 0) km = v;
+                    }
+                } catch (_) {}
+                const base = 30; // Minimum fee R30
+                if (km <= 5) return base;
+                return base + (km - 5) * 4.75; // R4.75 per km after 5km
+            }
+
+            // Merge items selected on Menu page into cart, then clear them
+            mergePendingOrderFromStorage() {
+                let pending = [];
+                try {
+                    pending = JSON.parse(localStorage.getItem('pendingOrderItems')) || [];
+                } catch (_) { pending = []; }
+                if (!Array.isArray(pending) || pending.length === 0) return;
+
+                const variantKeyFor = (it)=>{
+                    const ex = Array.isArray(it.exclusions) ? it.exclusions.slice().sort() : [];
+                    const notes = (it.notes||'').trim();
+                    return `${it.id}|${ex.join(',')}|${notes}`;
+                };
+
+                pending.forEach(p => {
+                    const id = String(p.id);
+                    const vkey = p.variantKey || variantKeyFor(p);
+                    const existingIndex = this.cart.findIndex(i => String(i.variantKey||variantKeyFor(i)) === String(vkey));
+                    const menuItem = this.menuItems.find(i => String(i.id) === id);
+                    if (existingIndex !== -1) {
+                        this.cart[existingIndex].quantity += (p.quantity || 1);
+                    } else {
+                        this.cart.push({
+                            id,
+                            name: p.name || menuItem?.name || 'Selected Item',
+                            price: typeof p.price === 'number' ? p.price : (menuItem?.price || 0),
+                            quantity: p.quantity || 1,
+                            image: menuItem?.image || 'https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg',
+                            exclusions: Array.isArray(p.exclusions) ? p.exclusions : [],
+                            notes: p.notes || '',
+                            variantKey: vkey
+                        });
+                    }
+                });
+
+                // Persist and clear pending
+                this.saveCart();
+                try { localStorage.removeItem('pendingOrderItems'); } catch (_) {}
+            }
+        }
+        
+        // Initialize the order system when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new OrderSystem();
+        });
+        
+        // Add CSS for animations
+        const animationStyles = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-20px); }
+            }
+        `;
+        
+        // Inject animation styles
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = animationStyles;
+        document.head.appendChild(styleSheet);
+    </script>
+    <script src="js/site.js" defer></script>
+    <script>
+      // Interactive submission to Formspree for Order Request form
+      document.addEventListener('DOMContentLoaded', function(){
+        const form = document.getElementById('order-request-form');
+        const statusEl = document.getElementById('order-request-status');
+        if (!form) return;
+        form.addEventListener('submit', async function(e){
+          e.preventDefault();
+          const name = document.getElementById('req-name').value.trim();
+          const phone = document.getElementById('req-phone').value.trim();
+          const altPhone = document.getElementById('req-alt-phone')?.value.trim()||'';
+          const saId = document.getElementById('req-id')?.value.trim()||'';
+          const email = document.getElementById('req-email').value.trim();
+          const preferred = document.getElementById('req-preferred').value.trim();
+          const delivery = document.getElementById('req-delivery').value;
+          const address = document.getElementById('req-address').value.trim();
+          const details = document.getElementById('req-details').value.trim();
+          const consent = document.getElementById('req-kyc-consent').checked;
+          if (!name || !phone) { statusEl.style.color='#c62828'; statusEl.textContent='Please enter your name and phone.'; return; }
+          const saPhoneRegex=/^(\+27|0)[6-8][0-9]{8}$/;
+          if (!saPhoneRegex.test(phone)) { statusEl.style.color='#c62828'; statusEl.textContent='Use a valid South African mobile number.'; return; }
+          if (!consent) { statusEl.style.color='#c62828'; statusEl.textContent='Please check the consent box to proceed.'; return; }
+          try {
+            const fd = new FormData();
+            fd.append('subject','New Legends Order Request');
+            fd.append('name', name);
+            fd.append('phone', phone);
+            if (altPhone) fd.append('altPhone', altPhone);
+            if (saId) fd.append('saIdNumber', saId);
+            if (email) fd.append('email', email);
+            fd.append('preferredTime', preferred);
+            fd.append('orderType', delivery);
+            fd.append('address', address);
+            fd.append('orderDetails', details);
+            fd.append('kycConsent', consent ? 'true' : 'false');
+            const resp = await fetch('https://formspree.io/f/mblvglba', { method:'POST', headers:{ 'Accept':'application/json' }, body: fd });
+            if (resp.ok) {
+              statusEl.style.color='#2e7d32';
+              statusEl.textContent='Request sent. We will call to confirm shortly.';
+              form.reset();
+            } else {
+              statusEl.style.color='#c62828';
+              statusEl.textContent='Could not send request. Please try again.';
+            }
+          } catch (err) {
+            statusEl.style.color='#c62828';
+            statusEl.textContent='Network error. Please try again.';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+  <!-- Deprecated page: redirect to checkout -->
+  <script>
+    window.location.replace('checkout.html');
+  </script>

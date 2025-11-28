@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Legends Rooftop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/loader.css">
+  <!-- Google Maps configuration (set these securely on your host) -->
+  <meta name="gmaps-key" content="">
+  <!-- Set your store coordinates for precise distance calculations -->
+  <meta name="gmaps-origin-lat" content="-29.952611051694895">
+  <meta name="gmaps-origin-lng" content="30.865270329354924">
+  <!-- reCAPTCHA configuration (site key injected by host; choose version v2 or v3) -->
+  <meta name="recaptcha-sitekey" content="">
+  <meta name="recaptcha-version" content="v3">
+  <style>
+    :root {
+      --primary-orange: #FF8C00;
+      --dark-orange: #E67E22;
+      --light-orange: #FFA726;
+      --light-bg: #FFF9F0;
+      --dark-text: #333333;
+      --light-text: #666666;
+      --border-color: #E0E0E0;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      color: var(--dark-text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Loading styles are provided by css/loader.css */
+
+    /* Header */
+    .checkout-header {
+      background-color: white;
+      box-shadow: var(--shadow);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .checkout-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--dark-text);
+      font-weight: 600;
+    }
+
+    .brand img {
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    .checkout-nav a {
+      color: var(--primary-orange);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .checkout-nav a:hover {
+      color: var(--dark-orange);
+    }
+
+    /* Main Content */
+    .checkout-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 40px 0;
+      perspective: 1000px;
+    }
+
+    .checkout-summary, .checkout-form {
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+    }
+
+    .checkout-summary {
+      transform: rotateY(-5deg);
+    }
+
+    .checkout-form {
+      transform: rotateY(5deg);
+    }
+
+    h2 {
+      color: var(--primary-orange);
+      margin-bottom: 20px;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary-orange);
+      border-radius: 2px;
+    }
+
+    /* Order Summary */
+    #summary-items {
+      margin-bottom: 20px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item-name {
+      font-weight: 500;
+    }
+
+    .item-price {
+      color: var(--light-text);
+      font-size: 0.9rem;
+    }
+
+    .item-quantity {
+      color: var(--primary-orange);
+      font-weight: 600;
+    }
+
+    .summary-totals {
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .total-row:last-child {
+      margin-bottom: 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary-orange);
+    }
+
+    /* Form Elements */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: var(--dark-text);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.2);
+    }
+
+    /* Address Section */
+    .address-section {
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .address-search {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 15px;
+      align-items: end;
+    }
+
+    #map {
+      width: 100%;
+      height: 200px;
+      margin-top: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .address-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    /* Payment Methods */
+    .payment-methods {
+      display: flex;
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    .payment-method {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      background-color: white;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .payment-method.active,
+    .payment-method.selected {
+      border-color: var(--primary-orange);
+      background-color: rgba(255, 140, 0, 0.05);
+    }
+
+    .payment-method:hover {
+      border-color: var(--primary-orange);
+    }
+
+    .eft-details {
+      display: none;
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 15px;
+      border: 1px dashed var(--border-color);
+    }
+
+    .eft-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .eft-item span {
+      color: var(--light-text);
+      font-size: 0.9rem;
+    }
+
+    .eft-item strong {
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-orange);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--dark-orange);
+    }
+
+    .btn-secondary {
+      background-color: white;
+      color: var(--dark-text);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: #f5f5f5;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    /* Checkboxes */
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: auto;
+      margin-top: 5px;
+    }
+
+    .checkbox-group label {
+      margin-bottom: 0;
+    }
+
+    /* Toast Notifications */
+    #toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .toast {
+      background-color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 350px;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .toast.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .toast.success {
+      border-left: 4px solid #10B981;
+    }
+
+    .toast.error {
+      border-left: 4px solid #EF4444;
+    }
+
+    .toast.warning {
+      border-left: 4px solid #F59E0B;
+    }
+
+    .toast i {
+      font-size: 1.2rem;
+    }
+
+    .toast.success i {
+      color: #10B981;
+    }
+
+    .toast.error i {
+      color: #EF4444;
+    }
+
+    .toast.warning i {
+      color: #F59E0B;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .checkout-main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .checkout-summary, .checkout-form {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .form-grid, .address-grid, .address-search, .eft-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+      
+      .payment-methods {
+        flex-direction: column;
+      }
+    }
+    /* Maps UI enhancements */
+    .address-section #map {
+      height: 260px;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      background: #fffaf0;
+      box-shadow: var(--shadow);
+      margin-top: 10px;
+    }
+    .maps-status {
+      margin: 6px 0 10px;
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+    .maps-status.error { color: #b91c1c; }
+    .maps-status.success { color: #065f46; }
+  </style>
+</head>
+<body>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <div class="logo-spinner">
+          <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends Logo" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="loading-text">
+        <h3>Legends Rooftop</h3>
+        <p>Preparing checkout...</p>
+      </div>
+      <div class="loading-progress"><div class="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <header class="checkout-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="https://i.ibb.co/JLfy4Jm/Lengends-Container-Sign.jpg" alt="Legends" loading="lazy" decoding="async">
+        <span>Legends Rooftop</span>
+      </a>
+      <nav class="checkout-nav">
+<a href="Menuu.html">Back to Menu</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="checkout-main container">
+    <section class="checkout-summary">
+      <h2>Your Order Summary</h2>
+      <div id="summary-items">
+        <!-- Items render dynamically via js/checkout.js. Empty by default. -->
+      </div>
+      
+      <div class="summary-totals">
+        <div class="total-row">
+          <span>Subtotal</span>
+          <span id="summary-subtotal">R0.00</span>
+        </div>
+        <div class="total-row">
+          <span>Delivery</span>
+          <span id="summary-delivery">R30.00</span>
+        </div>
+        <div class="total-row">
+          <span>Total</span>
+          <span id="summary-total">R30.00</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="delivery-option">Order type:</label>
+        <select id="delivery-option">
+          <option value="delivery">Delivery</option>
+          <option value="pickup">Pickup</option>
+        </select>
+      </div>
+      
+      <a id="share-order" class="btn btn-primary" target="_blank" rel="noopener" href="HTTPS://wa.me/27787348487?text=Hello%20Legends%20Rooftop%2C%20I%27m%20placing%20an%20order.">
+        <i class="fab fa-whatsapp"></i> Share Order on WhatsApp
+      </a>
+    </section>
+
+    <section class="checkout-form">
+      <h2>Your Details</h2>
+      <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+      
+      <form id="checkout-form" action="https://formspree.io/f/mblvglba" method="POST">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input id="first-name" name="firstName" type="text" placeholder="e.g. Sizwe" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input id="last-name" name="lastName" type="text" placeholder="e.g. Dlamini" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="e.g. 0812345678 or +27812345678" required pattern="^(\+27|0)[6-8][0-9]{8}$" title="South African mobile numbers only: e.g., 0812345678 or +27812345678">
+          </div>
+          <div class="form-group">
+            <label for="alt-phone">Alternate Phone (optional)</label>
+            <input id="alt-phone" name="altPhone" type="tel" placeholder="e.g. +27 79 000 0000">
+          </div>
+          
+          <div class="form-group full-width">
+            <label style="font-weight:600;">Delivery Address</label>
+            <div class="address-section">
+              <div class="address-search">
+                <div>
+                  <label for="address-search">Search Address (Google Maps)</label>
+                  <input id="address-search" type="text" placeholder="Start typing address...">
+                  <small style="color:#555;display:block;margin-top:4px;">Autocomplete powered by Google Maps. Select a suggestion to validate.</small>
+                </div>
+                <button type="button" id="use-location" class="btn btn-secondary">Use My Location</button>
+              </div>
+              <div id="maps-status" class="maps-status">Loading map… If it fails, you can still enter your address manually below.</div>
+              <div id="map"></div>
+              <div class="address-grid">
+                <div class="form-group">
+                  <label for="street">Street Address</label>
+                  <input id="street" name="street" type="text" placeholder="e.g. 123 Mkhize St">
+                </div>
+                <div class="form-group">
+                  <label for="suburb">Suburb</label>
+                  <input id="suburb" name="suburb" type="text" placeholder="e.g. Umlazi">
+                </div>
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input id="city" name="city" type="text" placeholder="e.g. Durban">
+                </div>
+                <div class="form-group">
+                  <label for="postal-code">Postal Code</label>
+                  <input id="postal-code" name="postalCode" type="text" placeholder="e.g. 4031">
+                </div>
+                <div class="form-group full-width">
+                  <label for="distance-km">Estimated Distance (km)</label>
+                  <input id="distance-km" name="distanceKm" type="number" step="0.1" min="0" placeholder="Auto-calculated" readonly>
+                  <small style="color:#555;display:block;margin-top:4px;">Minimum fee R30. After 5km, R4.75 per km applies.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden fields for Formspree submission -->
+        <input type="hidden" id="order-type-hidden" name="orderType" value="delivery">
+        <input type="hidden" id="payment-method" name="paymentMethod" value="">
+        <input type="hidden" id="order-number" name="orderNumber" value="">
+        <input type="hidden" id="order-summary" name="orderSummary" value="">
+        <input type="hidden" id="order-subtotal" name="subtotal" value="">
+        <input type="hidden" id="order-delivery" name="deliveryFee" value="">
+        <input type="hidden" id="order-total" name="total" value="">
+        <input type="hidden" id="kyc-consent-hidden" name="kycConsent" value="">
+
+          <div class="form-group">
+            <p style="font-weight:600;margin-bottom:8px;">Payment Method</p>
+            <div class="payment-methods">
+              <button type="button" class="payment-method" data-method="cod">Cash on Delivery</button>
+              <button type="button" class="payment-method" data-method="eft">EFT</button>
+            </div>
+            
+            <div class="eft-details" id="eft-details">
+              <p style="margin:0 0 8px;font-weight:600;">EFT Bank Details</p>
+              <div class="eft-grid">
+                <div class="eft-item">
+                  <span>Bank</span>
+                  <strong id="eft-bank-name">Your Bank Name</strong>
+                </div>
+              <div class="eft-item">
+                <span>Account Name</span>
+                <strong id="eft-account-name">Legends Rooftop</strong>
+              </div>
+              <div class="eft-item">
+                <span>Account Number</span>
+                <strong id="eft-account-number">0000000000</strong>
+              </div>
+              <div class="eft-item">
+                <span>Branch Code</span>
+                <strong id="eft-branch-code">000000</strong>
+              </div>
+              <div class="eft-item full-width">
+                <span>Reference</span>
+                <strong id="eft-reference">Use your Order Number</strong>
+              </div>
+            </div>
+            <p style="margin-top:8px;color:#b45309;">Please wait until we call to confirm your order before making payment.</p>
+          </div>
+          
+          <div class="checkbox-group">
+            <input type="checkbox" id="captcha-check" required>
+            <label for="captcha-check">I am human (anti-bot check). We will add reCAPTCHA once a site key is provided.</label>
+          </div>
+
+          <!-- Consent and reCAPTCHA -->
+          <div class="form-group" style="margin-top:12px;display:flex;align-items:flex-start;gap:8px;">
+            <input type="checkbox" id="kyc-consent" required>
+            <label for="kyc-consent" style="margin:0;">I consent to phone verification and providing accurate details for order confirmation and follow-up.</label>
+          </div>
+          <div class="form-group">
+            <div id="recaptcha-container" class="g-recaptcha"></div>
+            <input type="text" id="hp_field" name="contact_time" style="display:none;" aria-hidden="true" tabindex="-1" autocomplete="off">
+          </div>
+
+        <div class="action-buttons">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-clipboard-check"></i> Confirm Order</button>
+          <a href="Menuu.html" class="btn btn-secondary"><i class="fas fa-utensils"></i> Back to Menu</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/site.js" defer></script>
+  <!-- Dynamic reCAPTCHA loader: reads meta tags to support v2 widget or v3 token -->
+  <script>
+    (function loadRecaptcha(){
+      var keyMeta = document.querySelector('meta[name="recaptcha-sitekey"]');
+      var verMeta = document.querySelector('meta[name="recaptcha-version"]');
+      var siteKey = (window.RECAPTCHA_SITE_KEY || (keyMeta && keyMeta.content) || '');
+      var version = ((window.RECAPTCHA_VERSION || (verMeta && verMeta.content) || 'v2') + '').toLowerCase();
+      var container = document.getElementById('recaptcha-container');
+      function inject(src){ var s=document.createElement('script'); s.src=src; s.async=true; s.defer=true; document.head.appendChild(s); }
+      if (!siteKey) { if (container) container.style.display='none'; return; }
+      if (version === 'v3') {
+        if (container) container.style.display='none';
+        inject('https://www.google.com/recaptcha/api.js?render=' + encodeURIComponent(siteKey));
+      } else {
+        if (container) container.setAttribute('data-sitekey', siteKey);
+        inject('https://www.google.com/recaptcha/api.js');
+      }
+    })();
+  </script>
+  <!-- Google Maps loader with graceful fallback. Provide your key via window.MAPS_API_KEY or a meta tag named 'gmaps-key'. -->
+  <script>
+    (function loadGoogleMaps(){
+      var statusEl = document.getElementById('maps-status');
+      function setStatus(msg, cls){ if(!statusEl) return; statusEl.textContent = msg; statusEl.className = 'maps-status'+(cls?(' '+cls):''); }
+      var keyMeta = document.querySelector('meta[name="gmaps-key"]');
+      var key = window.MAPS_API_KEY || (keyMeta ? keyMeta.content : '');
+      if (!key) { setStatus('Google Maps is not configured. Enter your address manually or use phone confirmation.', 'error'); return; }
+      // Capture authentication failures from Google Maps
+      window.gm_authFailure = function(){ setStatus('Google Maps auth failed. Check API key, billing, and domain restrictions.', 'error'); };
+      var s = document.createElement('script');
+      s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(key) + '&libraries=places';
+      s.async = true; s.defer = true;
+      s.onload = function(){ setStatus('Map loaded. Search your address or use your location.', 'success'); try { if (window.initMapIfAvailable) window.initMapIfAvailable(); } catch(e){} };
+      s.onerror = function(){ setStatus('Google Maps failed to load. You can still submit your address manually.', 'error'); };
+      document.head.appendChild(s);
+    })();
+  </script>
+  <script src="js/checkout.js" defer></script>
+</body>
+</html>
